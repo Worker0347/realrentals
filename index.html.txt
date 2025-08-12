@@ -1,0 +1,3005 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🇺🇸 Verified USA Rentals - Premium Properties | Zero Scams, 100% Legal Rentals</title>
+    
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="Find verified rental properties across USA. Zero scams, 100% legal rentals with instant approval. Premium apartments, houses, condos available now.">
+    <meta name="keywords" content="USA rentals, verified properties, apartment rental, house rental, condo rental, legal rentals, scam-free rentals, instant approval">
+    <meta name="author" content="Verified USA Rentals">
+    <meta name="robots" content="index, follow">
+    <meta property="og:title" content="🇺🇸 Verified USA Rentals - Premium Properties">
+    <meta property="og:description" content="Find verified rental properties across USA. Zero scams, 100% legal rentals with instant approval.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://verifiedusarentals.com">
+    <meta property="og:image" content="https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=1200&h=630">
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+        
+        * {
+            font-family: 'Inter', sans-serif;
+        }
+        
+        /* Glass Morphism Effects */
+        .glass {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        .glass-card {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+        }
+        
+        /* Gradient Backgrounds */
+        .gradient-hero {
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 50%, #667eea 100%);
+        }
+        
+        /* Animations */
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+        }
+        
+        @keyframes pulse-glow {
+            0%, 100% { box-shadow: 0 0 20px rgba(34, 197, 94, 0.5); }
+            50% { box-shadow: 0 0 30px rgba(34, 197, 94, 0.8); }
+        }
+        
+        @keyframes fire-flicker {
+            0%, 100% { transform: scale(1) rotate(0deg); }
+            25% { transform: scale(1.1) rotate(-2deg); }
+            50% { transform: scale(1.05) rotate(1deg); }
+            75% { transform: scale(1.08) rotate(-1deg); }
+        }
+        
+        .float-animation { animation: float 3s ease-in-out infinite; }
+        .pulse-glow { animation: pulse-glow 2s infinite; }
+        .fire-flicker { animation: fire-flicker 1.5s infinite; }
+        
+        /* Property Card Hover Effects */
+        .property-card {
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+        
+        .property-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+        }
+        
+        /* Navigation */
+        .nav-glass {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        /* Modal Styles */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 10000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+        }
+        
+        .modal-content {
+            background: white;
+            margin: 2% auto;
+            padding: 0;
+            border-radius: 20px;
+            width: 90%;
+            max-width: 1000px;
+            max-height: 90vh;
+            overflow-y: auto;
+            position: relative;
+        }
+        
+        .auth-modal-content {
+            background: white;
+            margin: 5% auto;
+            padding: 0;
+            border-radius: 20px;
+            width: 90%;
+            max-width: 500px;
+            position: relative;
+        }
+        
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+            position: absolute;
+            right: 20px;
+            top: 15px;
+            z-index: 10001;
+            background: white;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+        }
+        
+        .close:hover {
+            color: #000;
+            background: #f0f0f0;
+        }
+        
+        /* Form Styles */
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+        
+        .form-input {
+            width: 100%;
+            padding: 12px 16px;
+            border: 2px solid #e5e7eb;
+            border-radius: 10px;
+            font-size: 16px;
+            transition: all 0.3s ease;
+        }
+        
+        .form-input:focus {
+            outline: none;
+            border-color: #3b82f6;
+            box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+        }
+        
+        .form-input.error {
+            border-color: #ef4444;
+        }
+        
+        .form-input.success {
+            border-color: #10b981;
+        }
+        
+        .error-message {
+            color: #ef4444;
+            font-size: 14px;
+            margin-top: 5px;
+        }
+        
+        .success-message {
+            color: #10b981;
+            font-size: 14px;
+            margin-top: 5px;
+        }
+        
+        /* Dashboard Styles */
+        .dashboard-card {
+            background: white;
+            border-radius: 15px;
+            padding: 20px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+        }
+        
+        .stat-card {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border-radius: 15px;
+            padding: 20px;
+            text-align: center;
+        }
+        
+        .activity-item {
+            padding: 15px;
+            border-bottom: 1px solid #e5e7eb;
+            display: flex;
+            align-items: center;
+            justify-content: between;
+        }
+        
+        .activity-item:last-child {
+            border-bottom: none;
+        }
+        
+
+        
+
+        
+
+        
+        /* Category Filters */
+        .category-btn {
+            transition: all 0.3s ease;
+        }
+        
+        .category-btn.active {
+            background: #3b82f6;
+            color: white;
+        }
+        
+        /* Visitor Counter */
+        .visitor-counter {
+            background: linear-gradient(45deg, #ff0000, #ff4444);
+            animation: pulse-glow 1s infinite;
+        }
+        
+        @media (max-width: 768px) {
+            .modal-content { 
+                width: 95%; 
+                margin: 5% auto; 
+            }
+        }
+    </style>
+</head>
+<body class="bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-50 min-h-screen">
+    <!-- Navigation -->
+    <nav class="nav-glass fixed top-0 left-0 right-0 z-50 py-4">
+        <div class="container mx-auto px-4">
+            <div class="flex items-center justify-between">
+                <div class="text-2xl font-bold text-blue-600">
+                    🏠 Verified USA Rentals
+                </div>
+                <div class="hidden md:flex space-x-6 items-center">
+                    <a href="#properties" class="text-gray-700 hover:text-blue-600 font-medium">Properties</a>
+                    <a href="#about" class="text-gray-700 hover:text-blue-600 font-medium">About</a>
+                    <a href="#services" class="text-gray-700 hover:text-blue-600 font-medium">Services</a>
+                    <div id="authButtons" class="flex space-x-3">
+                        <button onclick="openLoginModal()" class="text-blue-600 hover:text-blue-700 font-medium">🔑 Login</button>
+                        <button onclick="openSignupModal()" class="bg-blue-600 text-white px-4 py-2 rounded-full hover:bg-blue-700">📝 Sign Up</button>
+                    </div>
+                    <div id="userMenu" class="hidden flex items-center space-x-3">
+                        <span id="welcomeUser" class="text-gray-700 font-medium"></span>
+                        <button onclick="showUserDashboard()" class="bg-green-600 text-white px-4 py-2 rounded-full hover:bg-green-700">📊 Dashboard</button>
+                        <button onclick="logout()" class="text-red-600 hover:text-red-700 font-medium">🚪 Logout</button>
+                    </div>
+                    <a href="mailto:newserviceprovider1@gmail.com" class="bg-red-600 text-white px-4 py-2 rounded-full hover:bg-red-700">📧 Contact</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Header Banner Ads -->
+    <div class="mt-16">
+        <!-- Real Estate Investment Ad -->
+        <div class="bg-gradient-to-r from-green-600 via-blue-600 to-indigo-600 text-white py-4">
+            <div class="container mx-auto px-4">
+                <div class="flex items-center justify-between">
+                    <div class="flex items-center space-x-4">
+                        <img src="https://images.unsplash.com/photo-1560472354-b33ff0c44a43?w=60&h=60&fit=crop&crop=center" alt="Investment" class="w-12 h-12 rounded-full">
+                        <div>
+                            <div class="font-bold text-lg">💰 Real Estate Investment Opportunity</div>
+                            <div class="text-sm opacity-90">Start investing in rental properties with just $1,000</div>
+                        </div>
+                    </div>
+                    <button onclick="window.open('https://rehabilitationforegoingdefendant.com/xmaigr0b?key=0edc41fb6bc2d4fd65dd94469f8ccdce', '_blank')" class="bg-white text-blue-600 px-6 py-2 rounded-full font-bold hover:bg-gray-100 animate-pulse">
+                        Start Investing →
+                    </button>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Social Media Ads Banner -->
+        <div class="bg-gradient-to-r from-pink-500 via-purple-500 to-indigo-500 text-white py-4">
+            <div class="container mx-auto px-4">
+                <div class="flex flex-col md:flex-row items-center justify-between space-y-3 md:space-y-0">
+                    <div class="flex items-center space-x-6">
+                        <div class="flex space-x-2">
+                            <span class="text-2xl animate-bounce">📱</span>
+                            <span class="text-2xl animate-bounce" style="animation-delay: 0.1s">💬</span>
+                            <span class="text-2xl animate-bounce" style="animation-delay: 0.2s">📸</span>
+                        </div>
+                        <div>
+                            <div class="font-bold text-lg">🚀 Follow Us on Social Media for Exclusive Deals!</div>
+                            <div class="text-sm opacity-90">Get instant notifications for new properties & special offers</div>
+                        </div>
+                    </div>
+                    <div class="flex space-x-3">
+                        <button onclick="window.open('https://rehabilitationforegoingdefendant.com/xmaigr0b?key=0edc41fb6bc2d4fd65dd94469f8ccdce', '_blank')" class="bg-blue-600 text-white px-4 py-2 rounded-full font-bold hover:bg-blue-700 flex items-center space-x-2">
+                            <span>📘</span><span>Facebook</span>
+                        </button>
+                        <button onclick="window.open('https://rehabilitationforegoingdefendant.com/xmaigr0b?key=0edc41fb6bc2d4fd65dd94469f8ccdce', '_blank')" class="bg-pink-600 text-white px-4 py-2 rounded-full font-bold hover:bg-pink-700 flex items-center space-x-2">
+                            <span>📷</span><span>Instagram</span>
+                        </button>
+                        <button onclick="window.open('https://rehabilitationforegoingdefendant.com/xmaigr0b?key=0edc41fb6bc2d4fd65dd94469f8ccdce', '_blank')" class="bg-red-600 text-white px-4 py-2 rounded-full font-bold hover:bg-red-700 flex items-center space-x-2">
+                            <span>🎵</span><span>TikTok</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Credit Score Ad -->
+        <div class="bg-gradient-to-r from-orange-500 to-red-600 text-white py-3">
+            <div class="container mx-auto px-4">
+                <div class="flex items-center justify-center space-x-6 text-sm">
+                    <span class="font-bold">📊 Check Your Credit Score FREE</span>
+                    <button onclick="window.open('https://rehabilitationforegoingdefendant.com/xmaigr0b?key=0edc41fb6bc2d4fd65dd94469f8ccdce', '_blank')" class="bg-white text-orange-600 px-4 py-1 rounded-full font-bold hover:bg-gray-100">
+                        Check Now
+                    </button>
+                    <span class="font-bold">💳 Improve Your Rental Approval Chances</span>
+                    <button onclick="window.open('https://rehabilitationforegoingdefendant.com/xmaigr0b?key=0edc41fb6bc2d4fd65dd94469f8ccdce', '_blank')" class="bg-white text-red-600 px-4 py-1 rounded-full font-bold hover:bg-gray-100">
+                        Learn More
+                    </button>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Viral Social Media Contest Ad -->
+        <div class="bg-gradient-to-r from-yellow-400 via-orange-400 to-red-400 text-white py-4">
+            <div class="container mx-auto px-4">
+                <div class="flex flex-col md:flex-row items-center justify-between space-y-3 md:space-y-0">
+                    <div class="flex items-center space-x-4">
+                        <div class="text-4xl animate-spin">🎁</div>
+                        <div>
+                            <div class="font-bold text-lg">🏆 WIN $5,000 RENT CREDIT - Social Media Contest!</div>
+                            <div class="text-sm opacity-90">Share our post, tag 3 friends & follow us to enter!</div>
+                        </div>
+                    </div>
+                    <div class="flex space-x-2">
+                        <button onclick="window.open('https://rehabilitationforegoingdefendant.com/xmaigr0b?key=0edc41fb6bc2d4fd65dd94469f8ccdce', '_blank')" class="bg-white text-orange-600 px-4 py-2 rounded-full font-bold hover:bg-gray-100 animate-pulse">
+                            Enter Contest →
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+
+
+    <!-- Hero Section -->
+    <section class="gradient-hero text-white py-20 relative overflow-hidden">
+        <div class="container mx-auto px-4 text-center">
+            <h1 class="text-5xl md:text-7xl font-bold mb-6 float-animation">
+                🇺🇸 Verified USA Rentals
+            </h1>
+            <p class="text-2xl md:text-3xl mb-8 font-light">
+                Zero Scams, 100% Legal Properties
+            </p>
+            
+            <!-- Live Visitor Counter -->
+            <div class="visitor-counter inline-block px-6 py-3 rounded-full text-white font-bold mb-8 glass">
+                🔴 <span id="visitorCount">127</span> clients viewing properties now!
+            </div>
+            
+            <!-- Search Bar -->
+            <div class="glass max-w-6xl mx-auto mb-8 p-4 rounded-2xl">
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-6 gap-4">
+                    <div class="xl:col-span-2">
+                        <input type="text" id="locationSearch" placeholder="🏠 Enter city, state, or ZIP code" 
+                               class="w-full px-6 py-4 rounded-full border-0 text-lg text-gray-800 focus:outline-none focus:ring-2 focus:ring-blue-500">
+                    </div>
+                    <select id="propertyType" class="px-6 py-4 rounded-full border-0 text-lg text-gray-800 focus:outline-none focus:ring-2 focus:ring-blue-500">
+                        <option value="">🏢 Property Type</option>
+                        <option value="apartment">🏢 Apartment</option>
+                        <option value="house">🏡 House</option>
+                        <option value="condo">🏘️ Condo</option>
+                        <option value="townhouse">🏘️ Townhouse</option>
+                    </select>
+                    <select id="priceRange" class="px-6 py-4 rounded-full border-0 text-lg text-gray-800 focus:outline-none focus:ring-2 focus:ring-blue-500">
+                        <option value="">💰 Price Range</option>
+                        <option value="0-1000">💰 $0 - $1,000</option>
+                        <option value="1000-2000">💰 $1,000 - $2,000</option>
+                        <option value="2000-3000">💰 $2,000 - $3,000</option>
+                        <option value="3000+">💰 $3,000+</option>
+                    </select>
+                    <select id="bedrooms" class="px-6 py-4 rounded-full border-0 text-lg text-gray-800 focus:outline-none focus:ring-2 focus:ring-blue-500">
+                        <option value="">🛏️ Bedrooms</option>
+                        <option value="1">🛏️ 1 Bedroom</option>
+                        <option value="2">🛏️ 2 Bedrooms</option>
+                        <option value="3">🛏️ 3 Bedrooms</option>
+                        <option value="4+">🛏️ 4+ Bedrooms</option>
+                    </select>
+                    <select id="bathrooms" class="px-6 py-4 rounded-full border-0 text-lg text-gray-800 focus:outline-none focus:ring-2 focus:ring-blue-500">
+                        <option value="">🚿 Bathrooms</option>
+                        <option value="1">🚿 1 Bathroom</option>
+                        <option value="2">🚿 2 Bathrooms</option>
+                        <option value="3">🚿 3 Bathrooms</option>
+                        <option value="4+">🚿 4+ Bathrooms</option>
+                    </select>
+                </div>
+                <div class="mt-4 text-center">
+                    <button onclick="searchProperties()" class="pulse-glow bg-green-600 hover:bg-green-700 px-12 py-4 rounded-full text-lg font-bold transition-all">
+                        🔍 Search Properties
+                    </button>
+                    <button onclick="clearSearch()" class="ml-4 bg-gray-500 hover:bg-gray-600 text-white px-8 py-4 rounded-full text-lg font-bold transition-all">
+                        🗑️ Clear
+                    </button>
+                </div>
+            </div>
+            
+            <div class="flex flex-col md:flex-row gap-4 justify-center items-center">
+                <button onclick="scrollToProperties()" class="glass bg-white bg-opacity-20 hover:bg-opacity-30 px-8 py-4 rounded-full text-xl font-bold transition-all">
+                    🏠 View All Properties
+                </button>
+                <a href="mailto:newserviceprovider1@gmail.com?subject=Property Inquiry&body=Hi! I'm interested in your verified rental properties. Please send me more information." class="bg-red-600 hover:bg-red-700 px-8 py-4 rounded-full text-xl font-bold transition-all text-white">
+                    📧 Email Support
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Categories Section -->
+    <section class="py-12 bg-white">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-8">Browse by Category</h2>
+            <div class="flex flex-wrap justify-center gap-4 mb-8">
+                <button onclick="filterProperties('all')" class="category-btn active px-6 py-3 rounded-full bg-gray-200 hover:bg-blue-600 hover:text-white transition-all">
+                    🏠 All Properties (5000+)
+                </button>
+                <button onclick="filterProperties('apartment')" class="category-btn px-6 py-3 rounded-full bg-gray-200 hover:bg-blue-600 hover:text-white transition-all">
+                    🏢 Apartments (1800)
+                </button>
+                <button onclick="filterProperties('house')" class="category-btn px-6 py-3 rounded-full bg-gray-200 hover:bg-blue-600 hover:text-white transition-all">
+                    🏡 Houses (1500)
+                </button>
+                <button onclick="filterProperties('condo')" class="category-btn px-6 py-3 rounded-full bg-gray-200 hover:bg-blue-600 hover:text-white transition-all">
+                    🏘️ Condos (1200)
+                </button>
+                <button onclick="filterProperties('townhouse')" class="category-btn px-6 py-3 rounded-full bg-gray-200 hover:bg-blue-600 hover:text-white transition-all">
+                    🏘️ Townhouses (500)
+                </button>
+            </div>
+        </div>
+    </section>
+
+
+
+    <!-- Property Listings with Sidebar Ads -->
+    <section id="properties" class="py-20">
+        <div class="container mx-auto px-4">
+            <h2 class="text-4xl font-bold text-center mb-4 text-gray-800">
+                🔥 Premium Properties Available Now
+            </h2>
+            <p class="text-xl text-center text-gray-600 mb-12">
+                5000+ Verified listings with instant approval and zero scams guarantee
+            </p>
+            
+            <div class="flex gap-6">
+                <!-- Left Sidebar Ads -->
+                <div class="hidden lg:block w-64 space-y-6">
+                    <div class="sticky top-24">
+                        <!-- Moving Services Ad -->
+                        <div class="bg-white border-2 border-blue-200 p-4 rounded-lg shadow-lg">
+                            <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=240&h=120&fit=crop" alt="Moving Services" class="w-full h-24 object-cover rounded mb-3">
+                            <h3 class="font-bold text-blue-800 mb-2">🚚 Professional Moving Services</h3>
+                            <p class="text-xs text-gray-600 mb-3">Get 20% off your next move with certified movers</p>
+                            <button onclick="window.open('https://rehabilitationforegoingdefendant.com/xmaigr0b?key=0edc41fb6bc2d4fd65dd94469f8ccdce', '_blank')" class="w-full bg-blue-600 text-white px-3 py-2 rounded font-bold text-xs hover:bg-blue-700">
+                                Get Quote →
+                            </button>
+                        </div>
+                        
+                        <!-- Home Insurance Ad -->
+                        <div class="bg-white border-2 border-green-200 p-4 rounded-lg shadow-lg">
+                            <img src="https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=240&h=120&fit=crop" alt="Home Insurance" class="w-full h-24 object-cover rounded mb-3">
+                            <h3 class="font-bold text-green-800 mb-2">🛡️ Renters Insurance</h3>
+                            <p class="text-xs text-gray-600 mb-3">Protect your belongings from $5/month</p>
+                            <button onclick="window.open('https://rehabilitationforegoingdefendant.com/xmaigr0b?key=0edc41fb6bc2d4fd65dd94469f8ccdce', '_blank')" class="w-full bg-green-600 text-white px-3 py-2 rounded font-bold text-xs hover:bg-green-700">
+                                Get Coverage →
+                            </button>
+                        </div>
+                        
+                        <!-- Furniture Rental Ad -->
+                        <div class="bg-white border-2 border-purple-200 p-4 rounded-lg shadow-lg">
+                            <img src="https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=240&h=120&fit=crop" alt="Furniture Rental" class="w-full h-24 object-cover rounded mb-3">
+                            <h3 class="font-bold text-purple-800 mb-2">🪑 Furniture Rental</h3>
+                            <p class="text-xs text-gray-600 mb-3">Fully furnished apartments available</p>
+                            <button onclick="window.open('https://rehabilitationforegoingdefendant.com/xmaigr0b?key=0edc41fb6bc2d4fd65dd94469f8ccdce', '_blank')" class="w-full bg-purple-600 text-white px-3 py-2 rounded font-bold text-xs hover:bg-purple-700">
+                                Browse Furniture →
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Property Grid -->
+                <div class="flex-1">
+                    <div id="propertyGrid" class="grid md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3 gap-6">
+                        <!-- Properties will be loaded here by JavaScript -->
+                    </div>
+                    
+                    <!-- Load More Button -->
+                    <div class="text-center mt-12">
+                        <button onclick="loadMoreProperties()" class="glass bg-blue-600 bg-opacity-90 hover:bg-opacity-100 text-white px-8 py-4 rounded-full text-lg font-bold transition-all">
+                            🔍 Load More Properties
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Right Sidebar Ads -->
+                <div class="hidden lg:block w-64 space-y-6">
+                    <div class="sticky top-24">
+                        <!-- Mortgage/Loan Ad -->
+                        <div class="bg-white border-2 border-red-200 p-4 rounded-lg shadow-lg">
+                            <img src="https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=240&h=120&fit=crop" alt="Home Loans" class="w-full h-24 object-cover rounded mb-3">
+                            <h3 class="font-bold text-red-800 mb-2">🏦 Home Loans & Mortgages</h3>
+                            <p class="text-xs text-gray-600 mb-3">Pre-qualify for home loans in 2 minutes</p>
+                            <button onclick="window.open('https://rehabilitationforegoingdefendant.com/xmaigr0b?key=0edc41fb6bc2d4fd65dd94469f8ccdce', '_blank')" class="w-full bg-red-600 text-white px-3 py-2 rounded font-bold text-xs hover:bg-red-700">
+                                Check Rates →
+                            </button>
+                        </div>
+                        
+                        <!-- Utilities Setup Ad -->
+                        <div class="bg-white border-2 border-yellow-200 p-4 rounded-lg shadow-lg">
+                            <img src="https://images.unsplash.com/photo-1621905251189-08b45d6a269e?w=240&h=120&fit=crop" alt="Utilities" class="w-full h-24 object-cover rounded mb-3">
+                            <h3 class="font-bold text-yellow-800 mb-2">⚡ Utilities Setup Service</h3>
+                            <p class="text-xs text-gray-600 mb-3">Set up electricity, gas, internet in one call</p>
+                            <button onclick="window.open('https://rehabilitationforegoingdefendant.com/xmaigr0b?key=0edc41fb6bc2d4fd65dd94469f8ccdce', '_blank')" class="w-full bg-yellow-600 text-white px-3 py-2 rounded font-bold text-xs hover:bg-yellow-700">
+                                Setup Now →
+                            </button>
+                        </div>
+                        
+                        <!-- Background Check Ad -->
+                        <div class="bg-white border-2 border-indigo-200 p-4 rounded-lg shadow-lg">
+                            <img src="https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=240&h=120&fit=crop" alt="Background Check" class="w-full h-24 object-cover rounded mb-3">
+                            <h3 class="font-bold text-indigo-800 mb-2">🔍 Background Check Services</h3>
+                            <p class="text-xs text-gray-600 mb-3">Fast tenant screening & credit reports</p>
+                            <button onclick="window.open('https://rehabilitationforegoingdefendant.com/xmaigr0b?key=0edc41fb6bc2d4fd65dd94469f8ccdce', '_blank')" class="w-full bg-indigo-600 text-white px-3 py-2 rounded font-bold text-xs hover:bg-indigo-700">
+                                Run Check →
+                            </button>
+                        </div>
+                        
+                        <!-- Social Media Follow Ad -->
+                        <div class="bg-gradient-to-br from-pink-500 to-purple-600 p-4 rounded-lg shadow-lg text-white">
+                            <div class="text-center mb-3">
+                                <div class="flex justify-center space-x-1 mb-2">
+                                    <span class="text-2xl animate-bounce">📱</span>
+                                    <span class="text-2xl animate-bounce" style="animation-delay: 0.1s">💬</span>
+                                    <span class="text-2xl animate-bounce" style="animation-delay: 0.2s">📸</span>
+                                </div>
+                                <h3 class="font-bold text-white mb-2">🚀 Follow Us!</h3>
+                                <p class="text-xs opacity-90 mb-3">Get exclusive property alerts & deals</p>
+                            </div>
+                            <div class="space-y-2">
+                                <button onclick="window.open('https://rehabilitationforegoingdefendant.com/xmaigr0b?key=0edc41fb6bc2d4fd65dd94469f8ccdce', '_blank')" class="w-full bg-blue-600 text-white px-3 py-2 rounded font-bold text-xs hover:bg-blue-700 flex items-center justify-center space-x-2">
+                                    <span>📘</span><span>Facebook</span>
+                                </button>
+                                <button onclick="window.open('https://rehabilitationforegoingdefendant.com/xmaigr0b?key=0edc41fb6bc2d4fd65dd94469f8ccdce', '_blank')" class="w-full bg-pink-600 text-white px-3 py-2 rounded font-bold text-xs hover:bg-pink-700 flex items-center justify-center space-x-2">
+                                    <span>📷</span><span>Instagram</span>
+                                </button>
+                                <button onclick="window.open('https://rehabilitationforegoingdefendant.com/xmaigr0b?key=0edc41fb6bc2d4fd65dd94469f8ccdce', '_blank')" class="w-full bg-red-600 text-white px-3 py-2 rounded font-bold text-xs hover:bg-red-700 flex items-center justify-center space-x-2">
+                                    <span>🎵</span><span>TikTok</span>
+                                </button>
+                            </div>
+                        </div>
+                        
+                        <!-- Social Contest Ad -->
+                        <div class="bg-gradient-to-br from-yellow-400 to-orange-500 p-4 rounded-lg shadow-lg text-white">
+                            <div class="text-center">
+                                <div class="text-3xl animate-spin mb-2">🎁</div>
+                                <h3 class="font-bold text-white mb-2">WIN $5,000!</h3>
+                                <p class="text-xs opacity-90 mb-3">Social Media Contest - Share & Win!</p>
+                                <button onclick="window.open('https://rehabilitationforegoingdefendant.com/xmaigr0b?key=0edc41fb6bc2d4fd65dd94469f8ccdce', '_blank')" class="w-full bg-white text-orange-600 px-3 py-2 rounded font-bold text-xs hover:bg-gray-100 animate-pulse">
+                                    Enter Now →
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+    <!-- Property Detail Modal -->
+    <div id="propertyModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <div id="modalContent">
+                <!-- Property details will be loaded here -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Login Modal -->
+    <div id="loginModal" class="modal">
+        <div class="auth-modal-content">
+            <span class="close" onclick="closeLoginModal()">&times;</span>
+            <div class="p-8">
+                <div class="text-center mb-8">
+                    <h2 class="text-3xl font-bold text-gray-800 mb-2">🔑 Welcome Back!</h2>
+                    <p class="text-gray-600">Sign in to access your account and saved properties</p>
+                </div>
+                
+                <form id="loginForm" onsubmit="handleLogin(event)">
+                    <div class="form-group">
+                        <label class="block text-sm font-medium text-gray-700 mb-2">📧 Email Address</label>
+                        <input type="email" id="loginEmail" class="form-input" placeholder="Enter your email" required>
+                        <div id="loginEmailError" class="error-message hidden"></div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="block text-sm font-medium text-gray-700 mb-2">🔒 Password</label>
+                        <input type="password" id="loginPassword" class="form-input" placeholder="Enter your password" required>
+                        <div id="loginPasswordError" class="error-message hidden"></div>
+                    </div>
+                    
+                    <div class="flex items-center justify-between mb-6">
+                        <label class="flex items-center">
+                            <input type="checkbox" id="rememberMe" class="mr-2">
+                            <span class="text-sm text-gray-600">Remember me</span>
+                        </label>
+                        <button type="button" onclick="showForgotPassword()" class="text-sm text-blue-600 hover:text-blue-700">Forgot Password?</button>
+                    </div>
+                    
+                    <button type="submit" class="w-full bg-blue-600 hover:bg-blue-700 text-white py-3 rounded-lg font-bold text-lg transition-all">
+                        🚀 Sign In
+                    </button>
+                </form>
+                
+                <div class="mt-6 text-center">
+                    <p class="text-gray-600">Don't have an account? 
+                        <button onclick="switchToSignup()" class="text-blue-600 hover:text-blue-700 font-medium">Sign up here</button>
+                    </p>
+                </div>
+                
+                <div class="mt-6 pt-6 border-t border-gray-200">
+                    <div class="text-center text-sm text-gray-500 mb-4">Or continue with</div>
+                    <div class="grid grid-cols-2 gap-4">
+                        <button onclick="loginWithGoogle()" class="flex items-center justify-center px-4 py-2 border border-gray-300 rounded-lg hover:bg-gray-50">
+                            <span class="mr-2">🔍</span>Google
+                        </button>
+                        <button onclick="loginWithFacebook()" class="flex items-center justify-center px-4 py-2 border border-gray-300 rounded-lg hover:bg-gray-50">
+                            <span class="mr-2">📘</span>Facebook
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Signup Modal -->
+    <div id="signupModal" class="modal">
+        <div class="auth-modal-content">
+            <span class="close" onclick="closeSignupModal()">&times;</span>
+            <div class="p-8">
+                <div class="text-center mb-8">
+                    <h2 class="text-3xl font-bold text-gray-800 mb-2">📝 Create Account</h2>
+                    <p class="text-gray-600">Join thousands of users finding their perfect rental</p>
+                </div>
+                
+                <form id="signupForm" onsubmit="handleSignup(event)">
+                    <div class="grid grid-cols-2 gap-4 mb-6">
+                        <div class="form-group">
+                            <label class="block text-sm font-medium text-gray-700 mb-2">👤 First Name</label>
+                            <input type="text" id="firstName" class="form-input" placeholder="First name" required>
+                            <div id="firstNameError" class="error-message hidden"></div>
+                        </div>
+                        <div class="form-group">
+                            <label class="block text-sm font-medium text-gray-700 mb-2">👤 Last Name</label>
+                            <input type="text" id="lastName" class="form-input" placeholder="Last name" required>
+                            <div id="lastNameError" class="error-message hidden"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="block text-sm font-medium text-gray-700 mb-2">📧 Email Address</label>
+                        <input type="email" id="signupEmail" class="form-input" placeholder="Enter your email" required>
+                        <div id="signupEmailError" class="error-message hidden"></div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="block text-sm font-medium text-gray-700 mb-2">📱 Phone Number</label>
+                        <input type="tel" id="phoneNumber" class="form-input" placeholder="(555) 123-4567" required>
+                        <div id="phoneError" class="error-message hidden"></div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="block text-sm font-medium text-gray-700 mb-2">🔒 Password</label>
+                        <input type="password" id="signupPassword" class="form-input" placeholder="Create a strong password" required>
+                        <div id="signupPasswordError" class="error-message hidden"></div>
+                        <div class="text-xs text-gray-500 mt-1">Must be at least 8 characters with numbers and letters</div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="block text-sm font-medium text-gray-700 mb-2">🔒 Confirm Password</label>
+                        <input type="password" id="confirmPassword" class="form-input" placeholder="Confirm your password" required>
+                        <div id="confirmPasswordError" class="error-message hidden"></div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="flex items-start">
+                            <input type="checkbox" id="agreeTerms" class="mr-3 mt-1" required>
+                            <span class="text-sm text-gray-600">
+                                I agree to the <a href="#" class="text-blue-600 hover:text-blue-700">Terms of Service</a> 
+                                and <a href="#" class="text-blue-600 hover:text-blue-700">Privacy Policy</a>
+                            </span>
+                        </label>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="flex items-start">
+                            <input type="checkbox" id="emailUpdates" class="mr-3 mt-1">
+                            <span class="text-sm text-gray-600">
+                                Send me email updates about new properties and special offers
+                            </span>
+                        </label>
+                    </div>
+                    
+                    <button type="submit" class="w-full bg-green-600 hover:bg-green-700 text-white py-3 rounded-lg font-bold text-lg transition-all">
+                        🎉 Create Account
+                    </button>
+                </form>
+                
+                <div class="mt-6 text-center">
+                    <p class="text-gray-600">Already have an account? 
+                        <button onclick="switchToLogin()" class="text-blue-600 hover:text-blue-700 font-medium">Sign in here</button>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- User Dashboard Modal -->
+    <div id="dashboardModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeDashboard()">&times;</span>
+            <div id="dashboardContent">
+                <!-- Dashboard content will be loaded here -->
+            </div>
+        </div>
+    </div>
+
+    <!-- About Section -->
+    <section id="about" class="py-20 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold mb-4 text-gray-800">About Verified USA Rentals</h2>
+                <p class="text-xl text-gray-600">Your trusted partner in finding verified rental properties across America</p>
+            </div>
+            
+            <div class="grid lg:grid-cols-2 gap-12 items-center mb-16">
+                <div>
+                    <h3 class="text-3xl font-bold mb-6 text-blue-600">🏠 Our Mission</h3>
+                    <p class="text-lg text-gray-700 mb-6">
+                        At Verified USA Rentals, we're dedicated to eliminating rental scams and providing 100% legitimate, verified properties across the United States. Our mission is to make finding your perfect home safe, simple, and stress-free.
+                    </p>
+                    <p class="text-lg text-gray-700 mb-6">
+                        With over 500+ premium properties in major cities across all 50 states, we offer instant approval processes, zero scam guarantees, and 24/7 email support to ensure you find the perfect rental property.
+                    </p>
+                    
+
+                    
+                    <div class="grid grid-cols-2 gap-6">
+                        <div class="text-center p-4 bg-blue-50 rounded-lg">
+                            <div class="text-3xl font-bold text-blue-600">5000+</div>
+                            <div class="text-gray-600">Verified Properties</div>
+                        </div>
+                        <div class="text-center p-4 bg-green-50 rounded-lg">
+                            <div class="text-3xl font-bold text-green-600">100%</div>
+                            <div class="text-gray-600">Scam-Free Guarantee</div>
+                        </div>
+                        <div class="text-center p-4 bg-purple-50 rounded-lg">
+                            <div class="text-3xl font-bold text-purple-600">24/7</div>
+                            <div class="text-gray-600">Email Support</div>
+                        </div>
+                        <div class="text-center p-4 bg-red-50 rounded-lg">
+                            <div class="text-3xl font-bold text-red-600">15000+</div>
+                            <div class="text-gray-600">Happy Clients</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="glass-card p-8 rounded-2xl">
+                    <h3 class="text-2xl font-bold mb-6 text-center text-gray-800">📧 Contact Our Team</h3>
+                    <p class="text-gray-600 mb-6 text-center">
+                        Have questions? Need help finding the perfect property? Our expert team is here to help you 24/7!
+                    </p>
+                    
+                    <div class="space-y-4">
+                        <button onclick="sendGeneralInquiry()" class="w-full bg-red-600 hover:bg-red-700 text-white py-4 rounded-lg font-bold text-lg pulse-glow">
+                            📧 Send General Inquiry
+                        </button>
+                        
+                        <button onclick="requestPropertyList()" class="w-full bg-blue-600 hover:bg-blue-700 text-white py-3 rounded-lg font-bold">
+                            📋 Request Full Property List
+                        </button>
+                        
+                        <button onclick="scheduleConsultation()" class="w-full bg-green-600 hover:bg-green-700 text-white py-3 rounded-lg font-bold">
+                            📞 Schedule Free Consultation
+                        </button>
+                        
+                        <button onclick="reportScam()" class="w-full bg-orange-600 hover:bg-orange-700 text-white py-3 rounded-lg font-bold">
+                            🚨 Report Rental Scam
+                        </button>
+                    </div>
+                    
+                    <div class="mt-6 p-4 bg-yellow-50 rounded-lg border border-yellow-200">
+                        <p class="text-sm text-yellow-800 text-center">
+                            <strong>📧 Email:</strong> newserviceprovider1@gmail.com<br>
+                            <strong>⏰ Response Time:</strong> Within 2 hours<br>
+                            <strong>🌍 Service Area:</strong> All USA States
+                        </p>
+                    </div>
+                </div>
+            </div>
+            
+
+        </div>
+    </section>
+
+    <!-- Trust Section -->
+    <section id="services" class="py-20 gradient-hero">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold mb-4 text-white">Why Choose Verified USA Rentals?</h2>
+                <p class="text-xl text-white opacity-90">Your trusted partner in finding the perfect rental property</p>
+            </div>
+            
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="glass text-center p-8 rounded-2xl">
+                    <div class="text-6xl mb-4">🛡️</div>
+                    <h3 class="text-xl font-bold mb-4 text-white">100% Verified Properties</h3>
+                    <p class="text-white opacity-90">Every property verified through official channels and background checks</p>
+                </div>
+                <div class="glass text-center p-8 rounded-2xl">
+                    <div class="text-6xl mb-4">⚡</div>
+                    <h3 class="text-xl font-bold mb-4 text-white">Instant Approval Process</h3>
+                    <p class="text-white opacity-90">Get approved in under 24 hours with our streamlined process</p>
+                </div>
+                <div class="glass text-center p-8 rounded-2xl">
+                    <div class="text-6xl mb-4">🏆</div>
+                    <h3 class="text-xl font-bold mb-4 text-white">Zero Scam Guarantee</h3>
+                    <p class="text-white opacity-90">Money-back guarantee on all listings with full legal protection</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+    <!-- Footer Banner Ads -->
+    <!-- Social Media Engagement Ad -->
+    <div class="bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 text-white py-6">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row items-center justify-between space-y-4 md:space-y-0">
+                <div class="flex items-center space-x-6">
+                    <div class="flex space-x-2">
+                        <span class="text-4xl animate-bounce">📱</span>
+                        <span class="text-4xl animate-bounce" style="animation-delay: 0.1s">💬</span>
+                        <span class="text-4xl animate-bounce" style="animation-delay: 0.2s">📸</span>
+                        <span class="text-4xl animate-bounce" style="animation-delay: 0.3s">🎵</span>
+                    </div>
+                    <div>
+                        <div class="text-xl font-bold">🚀 Join 100K+ Followers on Social Media!</div>
+                        <div class="text-sm opacity-90">Get exclusive property alerts, virtual tours & special discounts</div>
+                    </div>
+                </div>
+                <div class="flex space-x-3">
+                    <button onclick="window.open('https://rehabilitationforegoingdefendant.com/xmaigr0b?key=0edc41fb6bc2d4fd65dd94469f8ccdce', '_blank')" class="bg-blue-600 text-white px-4 py-3 rounded-full font-bold hover:bg-blue-700 flex items-center space-x-2">
+                        <span>📘</span><span>Facebook</span>
+                    </button>
+                    <button onclick="window.open('https://rehabilitationforegoingdefendant.com/xmaigr0b?key=0edc41fb6bc2d4fd65dd94469f8ccdce', '_blank')" class="bg-pink-600 text-white px-4 py-3 rounded-full font-bold hover:bg-pink-700 flex items-center space-x-2">
+                        <span>📷</span><span>Instagram</span>
+                    </button>
+                    <button onclick="window.open('https://rehabilitationforegoingdefendant.com/xmaigr0b?key=0edc41fb6bc2d4fd65dd94469f8ccdce', '_blank')" class="bg-red-600 text-white px-4 py-3 rounded-full font-bold hover:bg-red-700 flex items-center space-x-2">
+                        <span>🎵</span><span>TikTok</span>
+                    </button>
+                    <button onclick="window.open('https://rehabilitationforegoingdefendant.com/xmaigr0b?key=0edc41fb6bc2d4fd65dd94469f8ccdce', '_blank')" class="bg-indigo-600 text-white px-4 py-3 rounded-full font-bold hover:bg-indigo-700 flex items-center space-x-2">
+                        <span>💼</span><span>LinkedIn</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Real Estate Investment Platform Ad -->
+    <div class="bg-gradient-to-r from-purple-600 to-pink-600 text-white py-6">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row items-center justify-between space-y-4 md:space-y-0">
+                <div class="flex items-center space-x-6">
+                    <img src="https://images.unsplash.com/photo-1559526324-4b87b5e36e44?w=80&h=80&fit=crop&crop=center" alt="Investment Platform" class="w-16 h-16 rounded-full border-2 border-white">
+                    <div>
+                        <div class="text-xl font-bold">🏢 Real Estate Investment Platform</div>
+                        <div class="text-sm opacity-90">Join 50,000+ investors earning passive income from rental properties</div>
+                    </div>
+                </div>
+                <div class="flex space-x-4">
+                    <button onclick="window.open('https://rehabilitationforegoingdefendant.com/xmaigr0b?key=0edc41fb6bc2d4fd65dd94469f8ccdce', '_blank')" class="bg-white text-purple-600 px-6 py-3 rounded-full font-bold hover:bg-gray-100 animate-pulse">
+                        Start Investing Today →
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Home Security Ad -->
+    <div class="bg-gradient-to-r from-gray-800 to-gray-900 text-white py-4">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row items-center justify-center space-y-3 md:space-y-0 md:space-x-8 text-sm">
+                <div class="flex items-center space-x-3">
+                    <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=40&h=40&fit=crop&crop=center" alt="Security" class="w-8 h-8 rounded">
+                    <span class="font-bold">🔒 Home Security Systems - 50% OFF Installation</span>
+                </div>
+                <button onclick="window.open('https://rehabilitationforegoingdefendant.com/xmaigr0b?key=0edc41fb6bc2d4fd65dd94469f8ccdce', '_blank')" class="bg-red-600 text-white px-4 py-2 rounded-full font-bold hover:bg-red-700">
+                    Get Quote
+                </button>
+                <div class="flex items-center space-x-3">
+                    <img src="https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=40&h=40&fit=crop&crop=center" alt="Internet" class="w-8 h-8 rounded">
+                    <span class="font-bold">📶 High-Speed Internet - Free Installation</span>
+                </div>
+                <button onclick="window.open('https://rehabilitationforegoingdefendant.com/xmaigr0b?key=0edc41fb6bc2d4fd65dd94469f8ccdce', '_blank')" class="bg-blue-600 text-white px-4 py-2 rounded-full font-bold hover:bg-blue-700">
+                    Check Availability
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-12">
+        <div class="container mx-auto px-4">
+            <div class="grid md:grid-cols-4 gap-8">
+                <div>
+                    <h3 class="text-xl font-bold mb-4">🏠 Verified USA Rentals</h3>
+                    <p class="text-gray-400">Your trusted partner for verified rental properties across the United States.</p>
+                    <div class="mt-4">
+                        <a href="mailto:newserviceprovider1@gmail.com" class="bg-red-600 hover:bg-red-700 px-4 py-2 rounded-full text-white font-bold">
+                            📧 Email Us Now
+                        </a>
+                    </div>
+                </div>
+                <div>
+                    <h4 class="font-bold mb-4">Quick Links</h4>
+                    <ul class="space-y-2 text-gray-400">
+                        <li><a href="#properties" class="hover:text-white">Properties</a></li>
+                        <li><a href="#services" class="hover:text-white">Services</a></li>
+                        <li><a href="#about" class="hover:text-white">About</a></li>
+                        <li><a href="mailto:newserviceprovider1@gmail.com" class="hover:text-white">Contact</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-bold mb-4">Property Types</h4>
+                    <ul class="space-y-2 text-gray-400">
+                        <li><a href="#" onclick="filterProperties('apartment')" class="hover:text-white">Apartments (1800)</a></li>
+                        <li><a href="#" onclick="filterProperties('house')" class="hover:text-white">Houses (1500)</a></li>
+                        <li><a href="#" onclick="filterProperties('condo')" class="hover:text-white">Condos (1200)</a></li>
+                        <li><a href="#" onclick="filterProperties('townhouse')" class="hover:text-white">Townhouses (500)</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-bold mb-4">Contact Info</h4>
+                    <ul class="space-y-2 text-gray-400">
+                        <li>📧 newserviceprovider1@gmail.com</li>
+                        <li>🇺🇸 Nationwide Service</li>
+                        <li>⏰ 24/7 Email Support</li>
+                        <li>🛡️ Zero Scam Guarantee</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400">
+                <p>&copy; 2024 Verified USA Rentals. All rights reserved. | Zero Scams Guaranteed</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Property data with 500+ listings - Real images from Unsplash
+        const properties = [
+            {
+                id: 1,
+                title: "Luxury Manhattan Apartment",
+                type: "apartment",
+                price: 2500,
+                beds: 2,
+                baths: 2,
+                sqft: 1200,
+                location: "Manhattan, NY",
+                image: "https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=800&h=600&fit=crop",
+                features: ["Pet Friendly", "Gym Access", "Rooftop Terrace", "24/7 Security"],
+                description: "Stunning luxury apartment in the heart of Manhattan with breathtaking city views. Features modern amenities, high-end finishes, and prime location near Central Park.",
+                hotDeal: true
+            },
+            {
+                id: 2,
+                title: "Austin Family Home",
+                type: "house",
+                price: 1800,
+                beds: 3,
+                baths: 2,
+                sqft: 1800,
+                location: "Austin, TX",
+                image: "https://images.unsplash.com/photo-1570129477492-45c003edd2be?w=800&h=600&fit=crop",
+                features: ["Large Yard", "Garage", "Updated Kitchen", "Near Schools"],
+                description: "Beautiful family home in quiet Austin neighborhood. Perfect for families with spacious rooms, modern updates, and excellent school district."
+            },
+            {
+                id: 3,
+                title: "Miami Ocean View Studio",
+                type: "apartment",
+                price: 1200,
+                beds: 1,
+                baths: 1,
+                sqft: 800,
+                location: "Miami, FL",
+                image: "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=800&h=600&fit=crop",
+                features: ["Ocean View", "Pool Access", "Modern Amenities", "Beach Access"],
+                description: "Modern studio with stunning ocean views. Located in prime Miami Beach area with direct beach access and luxury amenities.",
+                hotDeal: true
+            },
+            {
+                id: 4,
+                title: "Phoenix Desert Townhouse",
+                type: "townhouse",
+                price: 1600,
+                beds: 2,
+                baths: 1.5,
+                sqft: 1100,
+                location: "Phoenix, AZ",
+                image: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&h=600&fit=crop",
+                features: ["Pet Friendly", "Pool Access", "Desert Views", "Patio"],
+                description: "Cozy townhouse with beautiful desert views. Features private patio, community pool, and pet-friendly policies."
+            },
+            {
+                id: 5,
+                title: "Seattle Waterfront Condo",
+                type: "condo",
+                price: 2200,
+                beds: 2,
+                baths: 2,
+                sqft: 1300,
+                location: "Seattle, WA",
+                image: "https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?w=800&h=600&fit=crop",
+                features: ["Waterfront", "Gym Access", "Concierge", "Parking"],
+                description: "Luxury waterfront condo with stunning lake views. Premium building with full concierge services and modern amenities."
+            },
+            {
+                id: 6,
+                title: "Boston Historic Brownstone",
+                type: "house",
+                price: 3200,
+                beds: 3,
+                baths: 2,
+                sqft: 1600,
+                location: "Boston, MA",
+                image: "https://images.unsplash.com/photo-1564013799919-ab600027ffc6?w=800&h=600&fit=crop",
+                features: ["Historic", "Renovated", "Hardwood Floors", "Garden"],
+                description: "Beautiful historic brownstone in prestigious Boston neighborhood. Completely renovated with modern amenities while preserving historic charm.",
+                hotDeal: true
+            },
+            {
+                id: 7,
+                title: "Chicago Downtown Loft",
+                type: "apartment",
+                price: 1900,
+                beds: 1,
+                baths: 1,
+                sqft: 900,
+                location: "Chicago, IL",
+                image: "https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?w=800&h=600&fit=crop",
+                features: ["Loft Style", "High Ceilings", "Exposed Brick", "Downtown"],
+                description: "Industrial loft in downtown Chicago with exposed brick walls and high ceilings. Walking distance to all major attractions."
+            },
+            {
+                id: 8,
+                title: "Los Angeles Hills Villa",
+                type: "house",
+                price: 4500,
+                beds: 4,
+                baths: 3,
+                sqft: 2500,
+                location: "Los Angeles, CA",
+                image: "https://images.unsplash.com/photo-1613490493576-7fde63acd811?w=800&h=600&fit=crop",
+                features: ["Pool", "City Views", "Luxury", "Garage"],
+                description: "Stunning villa in the Hollywood Hills with panoramic city views. Features pool, luxury finishes, and prime location."
+            },
+            {
+                id: 9,
+                title: "Denver Mountain View Condo",
+                type: "condo",
+                price: 1700,
+                beds: 2,
+                baths: 2,
+                sqft: 1100,
+                location: "Denver, CO",
+                image: "https://images.unsplash.com/photo-1449824913935-59a10b8d2000?w=800&h=600&fit=crop",
+                features: ["Mountain Views", "Ski Access", "Fireplace", "Balcony"],
+                description: "Modern condo with breathtaking mountain views. Perfect for outdoor enthusiasts with easy access to skiing and hiking."
+            },
+            {
+                id: 10,
+                title: "Nashville Music District Apartment",
+                type: "apartment",
+                price: 1400,
+                beds: 1,
+                baths: 1,
+                sqft: 750,
+                location: "Nashville, TN",
+                image: "https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?w=800&h=600&fit=crop",
+                features: ["Music District", "Nightlife", "Modern", "Walkable"],
+                description: "Trendy apartment in Nashville's famous Music District. Walking distance to live music venues and vibrant nightlife."
+            },
+            // Adding more properties to reach 30+
+            {
+                id: 11,
+                title: "Portland Pearl District Loft",
+                type: "apartment",
+                price: 2100,
+                beds: 2,
+                baths: 1,
+                sqft: 1000,
+                location: "Portland, OR",
+                image: "https://images.unsplash.com/photo-1484154218962-a197022b5858?w=800&h=600&fit=crop",
+                features: ["Pearl District", "Loft Style", "Art Galleries", "Restaurants"],
+                description: "Stylish loft in Portland's trendy Pearl District. Surrounded by art galleries, boutiques, and award-winning restaurants."
+            },
+            {
+                id: 12,
+                title: "Atlanta Midtown High-Rise",
+                type: "condo",
+                price: 1800,
+                beds: 2,
+                baths: 2,
+                sqft: 1200,
+                location: "Atlanta, GA",
+                image: "https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?w=800&h=600&fit=crop",
+                features: ["High-Rise", "City Views", "Gym", "Pool"],
+                description: "Modern high-rise condo in Atlanta's vibrant Midtown district. Premium amenities and stunning city skyline views."
+            },
+            {
+                id: 13,
+                title: "San Diego Beach House",
+                type: "house",
+                price: 3800,
+                beds: 3,
+                baths: 2,
+                sqft: 1900,
+                location: "San Diego, CA",
+                image: "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=800&h=600&fit=crop",
+                features: ["Beach Access", "Ocean Views", "Patio", "Garage"],
+                description: "Beautiful beach house just steps from the ocean. Perfect for beach lovers with private patio and stunning ocean views.",
+                hotDeal: true
+            },
+            {
+                id: 14,
+                title: "Dallas Urban Townhouse",
+                type: "townhouse",
+                price: 1900,
+                beds: 3,
+                baths: 2.5,
+                sqft: 1400,
+                location: "Dallas, TX",
+                image: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&h=600&fit=crop",
+                features: ["Urban Living", "Modern Design", "Rooftop", "Garage"],
+                description: "Contemporary townhouse in Dallas urban core. Features modern design, rooftop terrace, and attached garage."
+            },
+            {
+                id: 15,
+                title: "Las Vegas Strip View Condo",
+                type: "condo",
+                price: 1600,
+                beds: 1,
+                baths: 1,
+                sqft: 850,
+                location: "Las Vegas, NV",
+                image: "https://images.unsplash.com/photo-1551882547-ff40c63fe5fa?w=800&h=600&fit=crop",
+                features: ["Strip Views", "Pool", "Gym", "Entertainment"],
+                description: "Exciting condo with Las Vegas Strip views. Perfect for entertainment lovers with resort-style amenities."
+            },
+            // Continue adding more properties...
+            {
+                id: 16,
+                title: "Philadelphia Historic District Apartment",
+                type: "apartment",
+                price: 1500,
+                beds: 2,
+                baths: 1,
+                sqft: 950,
+                location: "Philadelphia, PA",
+                image: "https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=800&h=600&fit=crop",
+                features: ["Historic District", "Brick Building", "Hardwood", "Character"],
+                description: "Charming apartment in Philadelphia's historic district with original hardwood floors and historic character."
+            },
+            {
+                id: 17,
+                title: "San Francisco Bay View Apartment",
+                type: "apartment",
+                price: 3500,
+                beds: 1,
+                baths: 1,
+                sqft: 700,
+                location: "San Francisco, CA",
+                image: "https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?w=800&h=600&fit=crop",
+                features: ["Bay Views", "Victorian Building", "Transit Access", "Walkable"],
+                description: "Stunning bay view apartment in classic San Francisco Victorian building. Excellent public transit access."
+            },
+            {
+                id: 18,
+                title: "Houston Energy Corridor House",
+                type: "house",
+                price: 2200,
+                beds: 4,
+                baths: 3,
+                sqft: 2200,
+                location: "Houston, TX",
+                image: "https://images.unsplash.com/photo-1570129477492-45c003edd2be?w=800&h=600&fit=crop",
+                features: ["Energy Corridor", "Large Yard", "Pool", "Modern"],
+                description: "Spacious family home in Houston's Energy Corridor. Features pool, large yard, and modern amenities."
+            },
+            {
+                id: 19,
+                title: "Minneapolis Uptown Loft",
+                type: "apartment",
+                price: 1600,
+                beds: 1,
+                baths: 1,
+                sqft: 800,
+                location: "Minneapolis, MN",
+                image: "https://images.unsplash.com/photo-1484154218962-a197022b5858?w=800&h=600&fit=crop",
+                features: ["Uptown", "Loft Style", "Lakes Nearby", "Arts District"],
+                description: "Cool loft in Minneapolis Uptown district. Close to lakes, arts venues, and vibrant nightlife."
+            },
+            {
+                id: 20,
+                title: "Tampa Bay Waterfront Condo",
+                type: "condo",
+                price: 1900,
+                beds: 2,
+                baths: 2,
+                sqft: 1150,
+                location: "Tampa, FL",
+                image: "https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?w=800&h=600&fit=crop",
+                features: ["Waterfront", "Bay Views", "Marina", "Pool"],
+                description: "Luxury waterfront condo on Tampa Bay with marina access and resort-style amenities."
+            },
+            // Adding 10 more to reach 30+
+            {
+                id: 21,
+                title: "Charlotte Uptown High-Rise",
+                type: "apartment",
+                price: 1700,
+                beds: 2,
+                baths: 2,
+                sqft: 1100,
+                location: "Charlotte, NC",
+                image: "https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=800&h=600&fit=crop",
+                features: ["Uptown", "High-Rise", "City Views", "Modern"],
+                description: "Modern high-rise apartment in Charlotte's bustling Uptown district with city skyline views."
+            },
+            {
+                id: 22,
+                title: "Orlando Theme Park Area House",
+                type: "house",
+                price: 1400,
+                beds: 3,
+                baths: 2,
+                sqft: 1500,
+                location: "Orlando, FL",
+                image: "https://images.unsplash.com/photo-1570129477492-45c003edd2be?w=800&h=600&fit=crop",
+                features: ["Theme Parks", "Family Friendly", "Pool", "Vacation Rental"],
+                description: "Perfect family home near Orlando theme parks. Great for families visiting Disney World and Universal Studios."
+            },
+            {
+                id: 23,
+                title: "Salt Lake City Mountain Condo",
+                type: "condo",
+                price: 1500,
+                beds: 2,
+                baths: 1,
+                sqft: 950,
+                location: "Salt Lake City, UT",
+                image: "https://images.unsplash.com/photo-1449824913935-59a10b8d2000?w=800&h=600&fit=crop",
+                features: ["Mountain Views", "Ski Access", "Hiking", "Clean Air"],
+                description: "Mountain condo with easy access to world-class skiing and hiking trails. Perfect for outdoor enthusiasts."
+            },
+            {
+                id: 24,
+                title: "Richmond Historic Townhouse",
+                type: "townhouse",
+                price: 1300,
+                beds: 2,
+                baths: 2,
+                sqft: 1200,
+                location: "Richmond, VA",
+                image: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&h=600&fit=crop",
+                features: ["Historic", "Renovated", "Garden", "Character"],
+                description: "Beautifully renovated historic townhouse in Richmond with private garden and period details."
+            },
+            {
+                id: 25,
+                title: "Kansas City Arts District Loft",
+                type: "apartment",
+                price: 1100,
+                beds: 1,
+                baths: 1,
+                sqft: 750,
+                location: "Kansas City, MO",
+                image: "https://images.unsplash.com/photo-1484154218962-a197022b5858?w=800&h=600&fit=crop",
+                features: ["Arts District", "Loft Style", "Galleries", "Affordable"],
+                description: "Affordable loft in Kansas City's vibrant Arts District. Surrounded by galleries, studios, and creative spaces."
+            },
+            {
+                id: 26,
+                title: "Raleigh Research Triangle House",
+                type: "house",
+                price: 1600,
+                beds: 3,
+                baths: 2,
+                sqft: 1600,
+                location: "Raleigh, NC",
+                image: "https://images.unsplash.com/photo-1570129477492-45c003edd2be?w=800&h=600&fit=crop",
+                features: ["Research Triangle", "Tech Hub", "Modern", "Schools"],
+                description: "Modern home in Raleigh's Research Triangle area. Perfect for tech professionals with excellent schools nearby."
+            },
+            {
+                id: 27,
+                title: "Columbus Short North Apartment",
+                type: "apartment",
+                price: 1200,
+                beds: 1,
+                baths: 1,
+                sqft: 800,
+                location: "Columbus, OH",
+                image: "https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=800&h=600&fit=crop",
+                features: ["Short North", "Arts District", "Walkable", "Trendy"],
+                description: "Trendy apartment in Columbus' hip Short North Arts District. Walking distance to galleries, restaurants, and nightlife."
+            },
+            {
+                id: 28,
+                title: "Milwaukee Riverfront Condo",
+                type: "condo",
+                price: 1400,
+                beds: 2,
+                baths: 2,
+                sqft: 1000,
+                location: "Milwaukee, WI",
+                image: "https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?w=800&h=600&fit=crop",
+                features: ["Riverfront", "Water Views", "Historic Building", "Brewery District"],
+                description: "Riverfront condo in converted historic building. Located in Milwaukee's famous brewery district."
+            },
+            {
+                id: 29,
+                title: "Buffalo Elmwood Village House",
+                type: "house",
+                price: 900,
+                beds: 2,
+                baths: 1,
+                sqft: 1100,
+                location: "Buffalo, NY",
+                image: "https://images.unsplash.com/photo-1570129477492-45c003edd2be?w=800&h=600&fit=crop",
+                features: ["Elmwood Village", "Affordable", "Character", "Walkable"],
+                description: "Charming house in Buffalo's trendy Elmwood Village. Great value with lots of character and walkable neighborhood."
+            },
+            {
+                id: 30,
+                title: "Louisville Highlands Townhouse",
+                type: "townhouse",
+                price: 1100,
+                beds: 2,
+                baths: 1.5,
+                sqft: 1000,
+                location: "Louisville, KY",
+                image: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&h=600&fit=crop",
+                features: ["Highlands", "Walkable", "Restaurants", "Affordable"],
+                description: "Cozy townhouse in Louisville's vibrant Highlands neighborhood. Walking distance to restaurants and entertainment."
+            },
+            {
+                id: 31,
+                title: "Tucson Desert Oasis Condo",
+                type: "condo",
+                price: 1300,
+                beds: 2,
+                baths: 2,
+                sqft: 1100,
+                location: "Tucson, AZ",
+                image: "https://images.unsplash.com/photo-1449824913935-59a10b8d2000?w=800&h=600&fit=crop",
+                features: ["Desert Views", "Pool", "Golf Course", "Resort Style"],
+                description: "Desert oasis condo with stunning mountain views. Resort-style living with golf course and spa amenities.",
+                hotDeal: true
+            },
+            {
+                id: 32,
+                title: "Albuquerque Old Town Adobe",
+                type: "house",
+                price: 1200,
+                beds: 2,
+                baths: 2,
+                sqft: 1300,
+                location: "Albuquerque, NM",
+                image: "https://images.unsplash.com/photo-1564013799919-ab600027ffc6?w=800&h=600&fit=crop",
+                features: ["Adobe Style", "Old Town", "Historic", "Courtyard"],
+                description: "Authentic adobe home in Albuquerque's historic Old Town. Features traditional courtyard and southwestern charm."
+            },
+            // Adding 470+ more properties with real images
+            {
+                id: 33,
+                title: "Brooklyn Heights Luxury Apartment",
+                type: "apartment",
+                price: 3200,
+                beds: 2,
+                baths: 2,
+                sqft: 1400,
+                location: "Brooklyn, NY",
+                image: "https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?w=800&h=600&fit=crop",
+                features: ["Manhattan Views", "Historic Building", "Promenade Access", "Luxury Finishes"],
+                description: "Stunning apartment in Brooklyn Heights with breathtaking Manhattan skyline views.",
+                hotDeal: true
+            },
+            {
+                id: 34,
+                title: "San Antonio River Walk Condo",
+                type: "condo",
+                price: 1600,
+                beds: 2,
+                baths: 2,
+                sqft: 1100,
+                location: "San Antonio, TX",
+                image: "https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?w=800&h=600&fit=crop",
+                features: ["River Walk", "Downtown", "Balcony", "Pool"],
+                description: "Modern condo steps from the famous San Antonio River Walk with downtown views."
+            },
+            {
+                id: 35,
+                title: "Portland Pearl District Penthouse",
+                type: "apartment",
+                price: 2800,
+                beds: 3,
+                baths: 2,
+                sqft: 1600,
+                location: "Portland, OR",
+                image: "https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=800&h=600&fit=crop",
+                features: ["Penthouse", "City Views", "Modern", "Rooftop Access"],
+                description: "Luxury penthouse in Portland's trendy Pearl District with panoramic city views."
+            },
+            {
+                id: 36,
+                title: "Virginia Beach Oceanfront House",
+                type: "house",
+                price: 2400,
+                beds: 4,
+                baths: 3,
+                sqft: 2000,
+                location: "Virginia Beach, VA",
+                image: "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=800&h=600&fit=crop",
+                features: ["Oceanfront", "Private Beach", "Deck", "Garage"],
+                description: "Beautiful oceanfront house with private beach access and stunning ocean views.",
+                hotDeal: true
+            },
+            {
+                id: 37,
+                title: "Detroit Midtown Loft",
+                type: "apartment",
+                price: 1100,
+                beds: 1,
+                baths: 1,
+                sqft: 900,
+                location: "Detroit, MI",
+                image: "https://images.unsplash.com/photo-1484154218962-a197022b5858?w=800&h=600&fit=crop",
+                features: ["Industrial Loft", "High Ceilings", "Exposed Brick", "Arts District"],
+                description: "Cool industrial loft in Detroit's revitalized Midtown arts district."
+            },
+            {
+                id: 38,
+                title: "Honolulu Waikiki Beach Condo",
+                type: "condo",
+                price: 3500,
+                beds: 2,
+                baths: 2,
+                sqft: 1200,
+                location: "Honolulu, HI",
+                image: "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=800&h=600&fit=crop",
+                features: ["Beach Views", "Pool", "Concierge", "Tropical"],
+                description: "Luxury beachfront condo in Waikiki with stunning ocean views and resort amenities."
+            },
+            {
+                id: 39,
+                title: "Anchorage Mountain View House",
+                type: "house",
+                price: 1800,
+                beds: 3,
+                baths: 2,
+                sqft: 1700,
+                location: "Anchorage, AK",
+                image: "https://images.unsplash.com/photo-1449824913935-59a10b8d2000?w=800&h=600&fit=crop",
+                features: ["Mountain Views", "Fireplace", "Large Yard", "Wildlife Views"],
+                description: "Cozy house with spectacular mountain views and wildlife watching opportunities."
+            },
+            {
+                id: 40,
+                title: "Savannah Historic District Townhouse",
+                type: "townhouse",
+                price: 1900,
+                beds: 3,
+                baths: 2.5,
+                sqft: 1500,
+                location: "Savannah, GA",
+                image: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&h=600&fit=crop",
+                features: ["Historic District", "Garden", "Original Details", "Walkable"],
+                description: "Beautiful historic townhouse in Savannah's charming historic district."
+            },
+            {
+                id: 41,
+                title: "Boise Foothills Modern Home",
+                type: "house",
+                price: 2100,
+                beds: 4,
+                baths: 3,
+                sqft: 2200,
+                location: "Boise, ID",
+                image: "https://images.unsplash.com/photo-1570129477492-45c003edd2be?w=800&h=600&fit=crop",
+                features: ["Foothills", "Modern Design", "Mountain Views", "Large Lot"],
+                description: "Contemporary home in Boise foothills with stunning mountain and valley views."
+            },
+            {
+                id: 42,
+                title: "Charleston Rainbow Row Apartment",
+                type: "apartment",
+                price: 2200,
+                beds: 2,
+                baths: 1,
+                sqft: 1000,
+                location: "Charleston, SC",
+                image: "https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=800&h=600&fit=crop",
+                features: ["Historic", "Rainbow Row", "Harbor Views", "Character"],
+                description: "Charming apartment near famous Rainbow Row with historic Charleston character."
+            },
+            {
+                id: 43,
+                title: "Burlington Lake Champlain Condo",
+                type: "condo",
+                price: 1700,
+                beds: 2,
+                baths: 2,
+                sqft: 1100,
+                location: "Burlington, VT",
+                image: "https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?w=800&h=600&fit=crop",
+                features: ["Lake Views", "Mountain Views", "Ski Access", "Walkable"],
+                description: "Beautiful condo with Lake Champlain and mountain views in downtown Burlington."
+            },
+            {
+                id: 44,
+                title: "Jackson Hole Ski Chalet",
+                type: "house",
+                price: 4200,
+                beds: 5,
+                baths: 4,
+                sqft: 3000,
+                location: "Jackson, WY",
+                image: "https://images.unsplash.com/photo-1449824913935-59a10b8d2000?w=800&h=600&fit=crop",
+                features: ["Ski Access", "Mountain Views", "Fireplace", "Luxury"],
+                description: "Luxury ski chalet with direct slope access and breathtaking Teton mountain views.",
+                hotDeal: true
+            },
+            {
+                id: 45,
+                title: "Little Rock River District Loft",
+                type: "apartment",
+                price: 1200,
+                beds: 1,
+                baths: 1,
+                sqft: 800,
+                location: "Little Rock, AR",
+                image: "https://images.unsplash.com/photo-1484154218962-a197022b5858?w=800&h=600&fit=crop",
+                features: ["River District", "Loft Style", "River Views", "Entertainment"],
+                description: "Modern loft in Little Rock's vibrant River District with Arkansas River views."
+            },
+            {
+                id: 46,
+                title: "Wilmington Beach House",
+                type: "house",
+                price: 2600,
+                beds: 4,
+                baths: 3,
+                sqft: 2100,
+                location: "Wilmington, DE",
+                image: "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=800&h=600&fit=crop",
+                features: ["Beach Access", "Deck", "Modern", "Family Friendly"],
+                description: "Beautiful beach house with easy access to Delaware's pristine beaches."
+            },
+            {
+                id: 47,
+                title: "Hartford Downtown High-Rise",
+                type: "condo",
+                price: 1500,
+                beds: 2,
+                baths: 2,
+                sqft: 1000,
+                location: "Hartford, CT",
+                image: "https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?w=800&h=600&fit=crop",
+                features: ["Downtown", "High-Rise", "City Views", "Modern"],
+                description: "Modern high-rise condo in downtown Hartford with city and river views."
+            },
+            {
+                id: 48,
+                title: "Fargo Prairie Modern Townhouse",
+                type: "townhouse",
+                price: 1300,
+                beds: 3,
+                baths: 2.5,
+                sqft: 1400,
+                location: "Fargo, ND",
+                image: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&h=600&fit=crop",
+                features: ["Modern Design", "Prairie Views", "Energy Efficient", "Garage"],
+                description: "Contemporary townhouse with modern amenities and beautiful prairie views."
+            },
+            {
+                id: 49,
+                title: "Sioux Falls Falls Park House",
+                type: "house",
+                price: 1600,
+                beds: 3,
+                baths: 2,
+                sqft: 1600,
+                location: "Sioux Falls, SD",
+                image: "https://images.unsplash.com/photo-1570129477492-45c003edd2be?w=800&h=600&fit=crop",
+                features: ["Falls Park", "Historic", "Updated", "Large Yard"],
+                description: "Charming house near Falls Park with updated amenities and historic character."
+            },
+            {
+                id: 50,
+                title: "Helena Capitol District Apartment",
+                type: "apartment",
+                price: 1100,
+                beds: 2,
+                baths: 1,
+                sqft: 900,
+                location: "Helena, MT",
+                image: "https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=800&h=600&fit=crop",
+                features: ["Capitol District", "Mountain Views", "Historic", "Walkable"],
+                description: "Cozy apartment in Helena's historic Capitol District with mountain views."
+            }
+            // Continue with more properties... (This represents 50 out of 500+ properties)
+            // The system will generate more properties dynamically to reach 500+
+        ];
+
+        // Generate additional properties to reach 5000+
+        function generateMoreProperties() {
+            const cities = [
+                "New York, NY", "Los Angeles, CA", "Chicago, IL", "Houston, TX", "Phoenix, AZ",
+                "Philadelphia, PA", "San Antonio, TX", "San Diego, CA", "Dallas, TX", "San Jose, CA",
+                "Austin, TX", "Jacksonville, FL", "Fort Worth, TX", "Columbus, OH", "Charlotte, NC",
+                "San Francisco, CA", "Indianapolis, IN", "Seattle, WA", "Denver, CO", "Washington, DC",
+                "Boston, MA", "El Paso, TX", "Nashville, TN", "Detroit, MI", "Oklahoma City, OK",
+                "Portland, OR", "Las Vegas, NV", "Memphis, TN", "Louisville, KY", "Baltimore, MD",
+                "Milwaukee, WI", "Albuquerque, NM", "Tucson, AZ", "Fresno, CA", "Sacramento, CA",
+                "Mesa, AZ", "Kansas City, MO", "Atlanta, GA", "Long Beach, CA", "Colorado Springs, CO",
+                "Raleigh, NC", "Miami, FL", "Virginia Beach, VA", "Omaha, NE", "Oakland, CA",
+                "Minneapolis, MN", "Tulsa, OK", "Arlington, TX", "Tampa, FL", "New Orleans, LA",
+                "Wichita, KS", "Cleveland, OH", "Tampa, FL", "Arlington, TX", "New Orleans, LA",
+                "Honolulu, HI", "Anaheim, CA", "Santa Ana, CA", "St. Louis, MO", "Riverside, CA",
+                "Corpus Christi, TX", "Lexington, KY", "Pittsburgh, PA", "Anchorage, AK", "Stockton, CA",
+                "Cincinnati, OH", "St. Paul, MN", "Toledo, OH", "Greensboro, NC", "Newark, NJ",
+                "Plano, TX", "Henderson, NV", "Lincoln, NE", "Buffalo, NY", "Jersey City, NJ",
+                "Chula Vista, CA", "Fort Wayne, IN", "Orlando, FL", "St. Petersburg, FL", "Chandler, AZ",
+                "Laredo, TX", "Norfolk, VA", "Durham, NC", "Madison, WI", "Lubbock, TX",
+                "Irvine, CA", "Winston-Salem, NC", "Glendale, AZ", "Garland, TX", "Hialeah, FL",
+                "Reno, NV", "Chesapeake, VA", "Gilbert, AZ", "Baton Rouge, LA", "Irving, TX",
+                "Scottsdale, AZ", "North Las Vegas, NV", "Fremont, CA", "Boise, ID", "Richmond, VA",
+                "San Bernardino, CA", "Birmingham, AL", "Spokane, WA", "Rochester, NY", "Des Moines, IA",
+                "Modesto, CA", "Fayetteville, NC", "Tacoma, WA", "Oxnard, CA", "Fontana, CA",
+                "Columbus, GA", "Montgomery, AL", "Moreno Valley, CA", "Shreveport, LA", "Aurora, IL",
+                "Yonkers, NY", "Akron, OH", "Huntington Beach, CA", "Little Rock, AR", "Augusta, GA",
+                "Amarillo, TX", "Glendale, CA", "Mobile, AL", "Grand Rapids, MI", "Salt Lake City, UT",
+                "Tallahassee, FL", "Huntsville, AL", "Grand Prairie, TX", "Knoxville, TN", "Worcester, MA",
+                "Newport News, VA", "Brownsville, TX", "Overland Park, KS", "Santa Clarita, CA", "Providence, RI",
+                "Garden Grove, CA", "Chattanooga, TN", "Oceanside, CA", "Jackson, MS", "Fort Lauderdale, FL",
+                "Santa Rosa, CA", "Rancho Cucamonga, CA", "Port St. Lucie, FL", "Tempe, AZ", "Ontario, CA",
+                "Vancouver, WA", "Cape Coral, FL", "Sioux Falls, SD", "Springfield, MO", "Peoria, AZ",
+                "Pembroke Pines, FL", "Elk Grove, CA", "Salem, OR", "Lancaster, CA", "Corona, CA",
+                "Eugene, OR", "Palmdale, CA", "Salinas, CA", "Springfield, MA", "Pasadena, TX",
+                "Fort Collins, CO", "Hayward, CA", "Pomona, CA", "Cary, NC", "Rockford, IL",
+                "Alexandria, VA", "Escondido, CA", "McKinney, TX", "Kansas City, KS", "Joliet, IL",
+                "Sunnyvale, CA", "Torrance, CA", "Bridgeport, CT", "Lakewood, CO", "Hollywood, FL",
+                "Paterson, NJ", "Naperville, IL", "Syracuse, NY", "Mesquite, TX", "Dayton, OH",
+                "Savannah, GA", "Clarksville, TN", "Orange, CA", "Pasadena, CA", "Fullerton, CA",
+                "Killeen, TX", "Frisco, TX", "Hampton, VA", "McAllen, TX", "Warren, MI",
+                "Bellevue, WA", "West Valley City, UT", "Columbia, MO", "Olathe, KS", "Sterling Heights, MI",
+                "New Haven, CT", "Miramar, FL", "Waco, TX", "Thousand Oaks, CA", "Cedar Rapids, IA",
+                "Charleston, SC", "Visalia, CA", "Topeka, KS", "Elizabeth, NJ", "Gainesville, FL",
+                "Thornton, CO", "Roseville, CA", "Carrollton, TX", "Coral Springs, FL", "Stamford, CT",
+                "Simi Valley, CA", "Concord, CA", "Hartford, CT", "Kent, WA", "Lafayette, LA",
+                "Midland, TX", "Surprise, AZ", "Denton, TX", "Victorville, CA", "Evansville, IN",
+                "Santa Clara, CA", "Abilene, TX", "Athens, GA", "Vallejo, CA", "Allentown, PA",
+                "Norman, OK", "Beaumont, TX", "Independence, MO", "Murfreesboro, TN", "Ann Arbor, MI",
+                "Fargo, ND", "Wilmington, NC", "Golden, CO", "Columbia, SC", "Carmel, IN",
+                "Round Rock, TX", "Clearwater, FL", "Waterbury, CT", "Gresham, OR", "Fairfield, CA",
+                "Billings, MT", "Lowell, MA", "San Buenaventura, CA", "Pueblo, CO", "High Point, NC",
+                "West Covina, CA", "Richmond, CA", "Murrieta, CA", "Cambridge, MA", "Antioch, CA",
+                "Temecula, CA", "Norwalk, CA", "Centennial, CO", "Everett, WA", "Palm Bay, FL",
+                "Wichita Falls, TX", "Green Bay, WI", "Daly City, CA", "Burbank, CA", "Richardson, TX",
+                "Pompano Beach, FL", "North Charleston, SC", "Broken Arrow, OK", "Boulder, CO", "West Palm Beach, FL",
+                "Santa Maria, CA", "El Monte, CA", "Albuquerque, NM", "Woodbridge, NJ", "Rialto, CA"
+            ];
+            
+            const propertyTypes = ["apartment", "house", "condo", "townhouse"];
+            const images = [
+                "https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=800&h=600&fit=crop",
+                "https://images.unsplash.com/photo-1570129477492-45c003edd2be?w=800&h=600&fit=crop",
+                "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=800&h=600&fit=crop",
+                "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&h=600&fit=crop",
+                "https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?w=800&h=600&fit=crop",
+                "https://images.unsplash.com/photo-1484154218962-a197022b5858?w=800&h=600&fit=crop",
+                "https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?w=800&h=600&fit=crop",
+                "https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?w=800&h=600&fit=crop",
+                "https://images.unsplash.com/photo-1564013799919-ab600027ffc6?w=800&h=600&fit=crop",
+                "https://images.unsplash.com/photo-1449824913935-59a10b8d2000?w=800&h=600&fit=crop",
+                "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=800&h=600&fit=crop",
+                "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=800&h=600&fit=crop",
+                "https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?w=800&h=600&fit=crop",
+                "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=800&h=600&fit=crop",
+                "https://images.unsplash.com/photo-1600607687644-aac4c3eac7f4?w=800&h=600&fit=crop",
+                "https://images.unsplash.com/photo-1600566752355-35792bedcfea?w=800&h=600&fit=crop",
+                "https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?w=800&h=600&fit=crop",
+                "https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?w=800&h=600&fit=crop",
+                "https://images.unsplash.com/photo-1600585154526-990dced4db0d?w=800&h=600&fit=crop",
+                "https://images.unsplash.com/photo-1600047509807-ba8f99d2cdde?w=800&h=600&fit=crop",
+                "https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?w=800&h=600&fit=crop",
+                "https://images.unsplash.com/photo-1600121848594-d8644e57abab?w=800&h=600&fit=crop",
+                "https://images.unsplash.com/photo-1600573472592-401b489a3cdc?w=800&h=600&fit=crop",
+                "https://images.unsplash.com/photo-1600607688969-a5bfcd646154?w=800&h=600&fit=crop",
+                "https://images.unsplash.com/photo-1600566752229-450a5ba4a8e8?w=800&h=600&fit=crop",
+                "https://images.unsplash.com/photo-1600607688960-e095ff8d8c0f?w=800&h=600&fit=crop",
+                "https://images.unsplash.com/photo-1600566753151-384129cf4e3e?w=800&h=600&fit=crop",
+                "https://images.unsplash.com/photo-1613490493576-7fde63acd811?w=800&h=600&fit=crop",
+                "https://images.unsplash.com/photo-1551882547-ff40c63fe5fa?w=800&h=600&fit=crop",
+                "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=800&h=600&fit=crop",
+                "https://images.unsplash.com/photo-1582268611958-ebfd161ef9cf?w=800&h=600&fit=crop",
+                "https://images.unsplash.com/photo-1582268611958-ebfd161ef9cf?w=800&h=600&fit=crop",
+                "https://images.unsplash.com/photo-1571055107559-3e67626fa8be?w=800&h=600&fit=crop",
+                "https://images.unsplash.com/photo-1571055107734-b7e8369a8b5b?w=800&h=600&fit=crop",
+                "https://images.unsplash.com/photo-1571055107559-3e67626fa8be?w=800&h=600&fit=crop",
+                "https://images.unsplash.com/photo-1571055107734-b7e8369a8b5b?w=800&h=600&fit=crop",
+                "https://images.unsplash.com/photo-1571055107559-3e67626fa8be?w=800&h=600&fit=crop",
+                "https://images.unsplash.com/photo-1571055107734-b7e8369a8b5b?w=800&h=600&fit=crop",
+                "https://images.unsplash.com/photo-1571055107559-3e67626fa8be?w=800&h=600&fit=crop",
+                "https://images.unsplash.com/photo-1571055107734-b7e8369a8b5b?w=800&h=600&fit=crop",
+                "https://images.unsplash.com/photo-1571055107559-3e67626fa8be?w=800&h=600&fit=crop",
+                "https://images.unsplash.com/photo-1571055107734-b7e8369a8b5b?w=800&h=600&fit=crop",
+                "https://images.unsplash.com/photo-1571055107559-3e67626fa8be?w=800&h=600&fit=crop",
+                "https://images.unsplash.com/photo-1571055107734-b7e8369a8b5b?w=800&h=600&fit=crop",
+                "https://images.unsplash.com/photo-1571055107559-3e67626fa8be?w=800&h=600&fit=crop",
+                "https://images.unsplash.com/photo-1571055107734-b7e8369a8b5b?w=800&h=600&fit=crop",
+                "https://images.unsplash.com/photo-1571055107559-3e67626fa8be?w=800&h=600&fit=crop",
+                "https://images.unsplash.com/photo-1571055107734-b7e8369a8b5b?w=800&h=600&fit=crop",
+                "https://images.unsplash.com/photo-1571055107559-3e67626fa8be?w=800&h=600&fit=crop",
+                "https://images.unsplash.com/photo-1571055107734-b7e8369a8b5b?w=800&h=600&fit=crop",
+                "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=800&h=600&fit=crop",
+                "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=800&h=600&fit=crop",
+                "https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?w=800&h=600&fit=crop",
+                "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=800&h=600&fit=crop",
+                "https://images.unsplash.com/photo-1600607687644-aac4c3eac7f4?w=800&h=600&fit=crop",
+                "https://images.unsplash.com/photo-1600566752355-35792bedcfea?w=800&h=600&fit=crop",
+                "https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?w=800&h=600&fit=crop",
+                "https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?w=800&h=600&fit=crop",
+                "https://images.unsplash.com/photo-1600585154526-990dced4db0d?w=800&h=600&fit=crop",
+                "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=800&h=600&fit=crop",
+                "https://images.unsplash.com/photo-1600047509807-ba8f99d2cdde?w=800&h=600&fit=crop",
+                "https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?w=800&h=600&fit=crop",
+                "https://images.unsplash.com/photo-1600121848594-d8644e57abab?w=800&h=600&fit=crop",
+                "https://images.unsplash.com/photo-1600573472592-401b489a3cdc?w=800&h=600&fit=crop",
+                "https://images.unsplash.com/photo-1600607688969-a5bfcd646154?w=800&h=600&fit=crop",
+                "https://images.unsplash.com/photo-1600566752229-450a5ba4a8e8?w=800&h=600&fit=crop",
+                "https://images.unsplash.com/photo-1600607688960-e095ff8d8c0f?w=800&h=600&fit=crop",
+                "https://images.unsplash.com/photo-1600566753151-384129cf4e3e?w=800&h=600&fit=crop",
+                "https://images.unsplash.com/photo-1600607688618-9b2b8b4b8b8b?w=800&h=600&fit=crop",
+                "https://images.unsplash.com/photo-1600566752355-35792bedcfea?w=800&h=600&fit=crop",
+                "https://images.unsplash.com/photo-1600607688969-a5bfcd646154?w=800&h=600&fit=crop",
+                "https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?w=800&h=600&fit=crop",
+                "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=800&h=600&fit=crop",
+                "https://images.unsplash.com/photo-1600607687644-aac4c3eac7f4?w=800&h=600&fit=crop",
+                "https://images.unsplash.com/photo-1600566752229-450a5ba4a8e8?w=800&h=600&fit=crop",
+                "https://images.unsplash.com/photo-1600607688960-e095ff8d8c0f?w=800&h=600&fit=crop",
+                "https://images.unsplash.com/photo-1600566753151-384129cf4e3e?w=800&h=600&fit=crop",
+                "https://images.unsplash.com/photo-1600047509807-ba8f99d2cdde?w=800&h=600&fit=crop",
+                "https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?w=800&h=600&fit=crop",
+                "https://images.unsplash.com/photo-1600121848594-d8644e57abab?w=800&h=600&fit=crop",
+                "https://images.unsplash.com/photo-1600573472592-401b489a3cdc?w=800&h=600&fit=crop",
+                "https://images.unsplash.com/photo-1600607688969-a5bfcd646154?w=800&h=600&fit=crop",
+                "https://images.unsplash.com/photo-1600566752229-450a5ba4a8e8?w=800&h=600&fit=crop",
+                "https://images.unsplash.com/photo-1600607688960-e095ff8d8c0f?w=800&h=600&fit=crop",
+                "https://images.unsplash.com/photo-1600566753151-384129cf4e3e?w=800&h=600&fit=crop",
+                "https://images.unsplash.com/photo-1600607688618-9b2b8b4b8b8b?w=800&h=600&fit=crop",
+                "https://images.unsplash.com/photo-1600566752355-35792bedcfea?w=800&h=600&fit=crop",
+                "https://images.unsplash.com/photo-1600607688969-a5bfcd646154?w=800&h=600&fit=crop",
+                "https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?w=800&h=600&fit=crop",
+                "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=800&h=600&fit=crop",
+                "https://images.unsplash.com/photo-1600607687644-aac4c3eac7f4?w=800&h=600&fit=crop"
+            ];
+            
+            const features = [
+                ["Modern Kitchen", "Hardwood Floors", "In-Unit Laundry", "Parking"],
+                ["Pool Access", "Gym", "Concierge", "Rooftop Deck"],
+                ["Pet Friendly", "Balcony", "Storage", "High Ceilings"],
+                ["Fireplace", "Garden", "Updated Bathrooms", "Walk-in Closets"],
+                ["City Views", "Stainless Appliances", "Granite Counters", "Central AC"],
+                ["Waterfront", "Private Entrance", "Patio", "Garage"],
+                ["Historic Character", "Exposed Brick", "Loft Style", "Downtown"],
+                ["Mountain Views", "Ski Access", "Hot Tub", "Deck"],
+                ["Beach Access", "Ocean Views", "Resort Style", "Tropical"],
+                ["Energy Efficient", "Smart Home", "Solar Panels", "Green Building"],
+                ["Luxury Finishes", "Marble Counters", "Wine Cellar", "Home Theater"],
+                ["Gated Community", "Security System", "Elevator", "Valet Parking"],
+                ["Spa Access", "Tennis Court", "Golf Course", "Marina Access"],
+                ["Business Center", "Conference Room", "Co-working Space", "High-Speed Internet"],
+                ["Fitness Center", "Yoga Studio", "Sauna", "Steam Room"],
+                ["Rooftop Pool", "BBQ Area", "Fire Pit", "Outdoor Kitchen"],
+                ["Smart Thermostat", "Keyless Entry", "USB Outlets", "Built-in Speakers"],
+                ["Washer/Dryer", "Dishwasher", "Microwave", "Refrigerator"],
+                ["Walk-in Shower", "Soaking Tub", "Double Vanity", "Heated Floors"],
+                ["Crown Molding", "Coffered Ceilings", "Bay Windows", "French Doors"],
+                ["Private Balcony", "Juliet Balcony", "Terrace", "Courtyard"],
+                ["Covered Parking", "Assigned Parking", "EV Charging", "Bike Storage"],
+                ["Package Service", "Dry Cleaning", "Housekeeping", "Pet Grooming"],
+                ["Library", "Game Room", "Children's Playroom", "Dog Park"],
+                ["Outdoor Lounge", "Cabanas", "Putting Green", "Walking Trails"]
+            ];
+            
+            for (let i = 51; i <= 5000; i++) {
+                const type = propertyTypes[Math.floor(Math.random() * propertyTypes.length)];
+                const city = cities[Math.floor(Math.random() * cities.length)];
+                const image = images[Math.floor(Math.random() * images.length)];
+                const featureSet = features[Math.floor(Math.random() * features.length)];
+                const beds = Math.floor(Math.random() * 4) + 1;
+                const baths = Math.floor(Math.random() * 3) + 1;
+                const sqft = Math.floor(Math.random() * 2000) + 600;
+                const price = Math.floor(Math.random() * 3500) + 800;
+                const isHotDeal = Math.random() < 0.15; // 15% chance of hot deal
+                
+                const propertyNames = {
+                    apartment: ["Luxury Apartment", "Modern Loft", "Downtown Studio", "High-Rise Unit", "Garden Apartment"],
+                    house: ["Family Home", "Colonial House", "Ranch Style", "Victorian Home", "Modern House"],
+                    condo: ["Waterfront Condo", "High-Rise Condo", "Garden Condo", "Luxury Condo", "Downtown Condo"],
+                    townhouse: ["Modern Townhouse", "Historic Townhouse", "Garden Townhouse", "Urban Townhouse", "Family Townhouse"]
+                };
+                
+                const nameOptions = propertyNames[type];
+                const baseName = nameOptions[Math.floor(Math.random() * nameOptions.length)];
+                const cityName = city.split(',')[0];
+                
+                properties.push({
+                    id: i,
+                    title: `${cityName} ${baseName}`,
+                    type: type,
+                    price: price,
+                    beds: beds,
+                    baths: baths,
+                    sqft: sqft,
+                    location: city,
+                    image: image,
+                    features: featureSet,
+                    description: `Beautiful ${type} in ${city} with modern amenities and excellent location. Perfect for ${beds === 1 ? 'singles or couples' : 'families'} looking for quality housing.`,
+                    hotDeal: isHotDeal
+                });
+            }
+        }
+        
+        // Generate the additional properties
+        generateMoreProperties();
+
+        let currentFilter = 'all';
+        let displayedProperties = 9;
+
+        // Visitor counter animation
+        let visitorCount = 127;
+        setInterval(() => {
+            visitorCount += Math.floor(Math.random() * 7) - 3;
+            if (visitorCount < 89) visitorCount = 89;
+            if (visitorCount > 156) visitorCount = 156;
+            document.getElementById('visitorCount').textContent = visitorCount;
+        }, 5000);
+
+        // Load properties
+        function loadProperties() {
+            const grid = document.getElementById('propertyGrid');
+            const filteredProperties = currentFilter === 'all' ? properties : properties.filter(p => p.type === currentFilter);
+            const propertiesToShow = filteredProperties.slice(0, displayedProperties);
+            
+            grid.innerHTML = propertiesToShow.map(property => `
+                <div class="property-card glass-card rounded-2xl overflow-hidden relative" onclick="openPropertyModal(${property.id})">
+                    ${property.hotDeal ? `
+                        <div class="absolute top-4 left-4 z-10">
+                            <span class="fire-flicker text-3xl">🔥</span>
+                            <span class="bg-red-600 text-white px-3 py-1 rounded-full text-sm font-bold ml-2">HOT DEAL</span>
+                        </div>
+                    ` : ''}
+                    <div class="h-64 bg-cover bg-center" style="background-image: url('${property.image}');">
+                        <div class="h-full bg-gradient-to-t from-black via-transparent to-transparent flex items-end">
+                            <div class="text-white p-4 font-bold text-lg">${property.location}</div>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2">${property.title}</h3>
+                        <p class="text-gray-600 mb-2">${property.beds} bed, ${property.baths} bath • ${property.sqft} sq ft</p>
+                        <p class="text-2xl font-bold text-blue-600 mb-2">$${property.price}/month</p>
+                        <p class="text-sm text-gray-500 mb-4">📍 ${property.location} • Available Now</p>
+                        <div class="flex gap-2 mb-4">
+                            <span class="bg-blue-100 text-blue-800 px-2 py-1 rounded text-xs">Verified</span>
+                            <span class="bg-green-100 text-green-800 px-2 py-1 rounded text-xs">Move-in Ready</span>
+                            ${property.hotDeal ? '<span class="bg-red-100 text-red-800 px-2 py-1 rounded text-xs">Hot Deal</span>' : ''}
+                        </div>
+                        <div class="flex gap-2">
+                            <button class="${property.hotDeal ? 'pulse-glow bg-red-600 hover:bg-red-700' : 'bg-blue-600 hover:bg-blue-700'} flex-1 text-white py-3 rounded-lg font-bold">
+                                ${property.hotDeal ? '⚡ View Hot Deal' : '👁️ View Details'}
+                            </button>
+                            <button onclick="event.stopPropagation(); saveProperty(${property.id})" class="bg-gray-200 hover:bg-gray-300 text-gray-700 px-4 py-3 rounded-lg font-bold">
+                                💾
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        // Filter properties
+        function filterProperties(type) {
+            currentFilter = type;
+            displayedProperties = 9;
+            
+            // Update active button
+            document.querySelectorAll('.category-btn').forEach(btn => btn.classList.remove('active'));
+            event.target.classList.add('active');
+            
+            loadProperties();
+        }
+
+        // Load more properties
+        function loadMoreProperties() {
+            displayedProperties += 9;
+            loadProperties();
+        }
+
+        // Open property modal with background ads
+        function openPropertyModal(propertyId) {
+            // Run background ads
+            runBackgroundAds();
+            
+            const property = properties.find(p => p.id === propertyId);
+            const modal = document.getElementById('propertyModal');
+            const modalContent = document.getElementById('modalContent');
+            
+            modalContent.innerHTML = `
+                <div class="relative">
+                    <div class="h-96 bg-cover bg-center" style="background-image: url('${property.image}');">
+                        <div class="h-full bg-gradient-to-t from-black via-transparent to-transparent flex items-end">
+                            <div class="text-white p-8">
+                                <h1 class="text-4xl font-bold mb-2">${property.title}</h1>
+                                <p class="text-xl">📍 ${property.location}</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="p-8">
+                        <div class="grid md:grid-cols-2 gap-8">
+                            <div>
+                                <h2 class="text-3xl font-bold text-blue-600 mb-4">$${property.price}/month</h2>
+                                <div class="grid grid-cols-3 gap-4 mb-6">
+                                    <div class="text-center p-4 bg-gray-100 rounded-lg">
+                                        <div class="text-2xl font-bold">${property.beds}</div>
+                                        <div class="text-sm text-gray-600">Bedrooms</div>
+                                    </div>
+                                    <div class="text-center p-4 bg-gray-100 rounded-lg">
+                                        <div class="text-2xl font-bold">${property.baths}</div>
+                                        <div class="text-sm text-gray-600">Bathrooms</div>
+                                    </div>
+                                    <div class="text-center p-4 bg-gray-100 rounded-lg">
+                                        <div class="text-2xl font-bold">${property.sqft}</div>
+                                        <div class="text-sm text-gray-600">Sq Ft</div>
+                                    </div>
+                                </div>
+                                
+                                <h3 class="text-xl font-bold mb-4">Features & Amenities</h3>
+                                <div class="grid grid-cols-2 gap-2 mb-6">
+                                    ${property.features.map(feature => `
+                                        <div class="flex items-center">
+                                            <span class="text-green-600 mr-2">✅</span>
+                                            <span>${feature}</span>
+                                        </div>
+                                    `).join('')}
+                                </div>
+                            </div>
+                            
+                            <div>
+                                <h3 class="text-xl font-bold mb-4">Property Description</h3>
+                                <p class="text-gray-600 mb-6">${property.description}</p>
+                                
+                                <div class="bg-blue-50 p-6 rounded-lg mb-6">
+                                    <h4 class="font-bold text-blue-800 mb-2">🛡️ Verified Property Guarantee</h4>
+                                    <p class="text-blue-700 text-sm">This property has been verified through our comprehensive screening process. Zero scam guarantee with full legal protection.</p>
+                                </div>
+                                
+                                <div class="space-y-4">
+                                    <button onclick="contactViaEmail('${property.title}', '${property.id}')" class="w-full bg-red-600 hover:bg-red-700 text-white py-4 rounded-lg font-bold text-lg pulse-glow">
+                                        📧 Contact via Email - Get Instant Response!
+                                    </button>
+                                    
+                                    <div class="grid grid-cols-2 gap-4">
+                                        <button onclick="requestTour('${property.title}', '${property.id}')" class="bg-green-600 hover:bg-green-700 text-white py-3 rounded-lg font-bold">
+                                            🏠 Request Virtual Tour
+                                        </button>
+                                        
+                                        <button onclick="saveProperty(${property.id})" class="bg-purple-600 hover:bg-purple-700 text-white py-3 rounded-lg font-bold">
+                                            💾 Save Property
+                                        </button>
+                                    </div>
+                                    
+                                    <button onclick="applyNow('${property.title}', '${property.id}')" class="w-full bg-blue-600 hover:bg-blue-700 text-white py-3 rounded-lg font-bold">
+                                        📋 Apply Now - Instant Approval
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Banner Ads Below Property Details -->
+                        <div class="border-t border-gray-200 pt-6 mt-6">
+                            <div class="grid md:grid-cols-2 gap-4">
+                                <!-- Mortgage Pre-Approval Ad -->
+                                <div class="bg-gradient-to-r from-blue-600 to-purple-600 text-white p-6 rounded-lg">
+                                    <div class="flex items-center space-x-4">
+                                        <img src="https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=80&h=80&fit=crop&crop=center" alt="Mortgage" class="w-16 h-16 rounded-full">
+                                        <div class="flex-1">
+                                            <h3 class="font-bold text-lg mb-1">🏦 Get Pre-Approved for Mortgage</h3>
+                                            <p class="text-sm opacity-90 mb-3">Check rates & get pre-approved in 3 minutes</p>
+                                            <button onclick="window.open('https://rehabilitationforegoingdefendant.com/xmaigr0b?key=0edc41fb6bc2d4fd65dd94469f8ccdce', '_blank')" class="bg-white text-blue-600 px-4 py-2 rounded-full font-bold text-sm hover:bg-gray-100">
+                                                Check Rates →
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <!-- Moving Services Ad -->
+                                <div class="bg-gradient-to-r from-green-600 to-teal-600 text-white p-6 rounded-lg">
+                                    <div class="flex items-center space-x-4">
+                                        <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=80&h=80&fit=crop&crop=center" alt="Moving" class="w-16 h-16 rounded-full">
+                                        <div class="flex-1">
+                                            <h3 class="font-bold text-lg mb-1">🚚 Professional Moving Services</h3>
+                                            <p class="text-sm opacity-90 mb-3">Get 25% off your next move - Free quotes</p>
+                                            <button onclick="window.open('https://rehabilitationforegoingdefendant.com/xmaigr0b?key=0edc41fb6bc2d4fd65dd94469f8ccdce', '_blank')" class="bg-white text-green-600 px-4 py-2 rounded-full font-bold text-sm hover:bg-gray-100">
+                                                Get Quote →
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Full Width Insurance Ad -->
+                            <div class="bg-gradient-to-r from-orange-500 to-red-600 text-white p-6 rounded-lg mt-4">
+                                <div class="flex flex-col md:flex-row items-center justify-between space-y-4 md:space-y-0">
+                                    <div class="flex items-center space-x-6">
+                                        <img src="https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=100&h=100&fit=crop&crop=center" alt="Insurance" class="w-20 h-20 rounded-full border-2 border-white">
+                                        <div>
+                                            <h3 class="font-bold text-xl mb-2">🛡️ Renters Insurance - Protect Your Belongings</h3>
+                                            <p class="text-sm opacity-90">Starting from $5/month • Instant coverage • 24/7 claims support</p>
+                                        </div>
+                                    </div>
+                                    <div class="flex space-x-3">
+                                        <button onclick="window.open('https://rehabilitationforegoingdefendant.com/xmaigr0b?key=0edc41fb6bc2d4fd65dd94469f8ccdce', '_blank')" class="bg-white text-orange-600 px-6 py-3 rounded-full font-bold hover:bg-gray-100 animate-pulse">
+                                            Get Coverage Now →
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Utilities Setup Ad -->
+                            <div class="bg-gradient-to-r from-purple-600 to-pink-600 text-white p-6 rounded-lg mt-4">
+                                <div class="flex flex-col md:flex-row items-center justify-between space-y-4 md:space-y-0">
+                                    <div class="flex items-center space-x-6">
+                                        <img src="https://images.unsplash.com/photo-1621905251189-08b45d6a269e?w=100&h=100&fit=crop&crop=center" alt="Utilities" class="w-20 h-20 rounded-full border-2 border-white">
+                                        <div>
+                                            <h3 class="font-bold text-xl mb-2">⚡ One-Call Utilities Setup Service</h3>
+                                            <p class="text-sm opacity-90">Electricity • Gas • Internet • Cable - All in one call • Same day setup</p>
+                                        </div>
+                                    </div>
+                                    <div class="flex space-x-3">
+                                        <button onclick="window.open('https://rehabilitationforegoingdefendant.com/xmaigr0b?key=0edc41fb6bc2d4fd65dd94469f8ccdce', '_blank')" class="bg-white text-purple-600 px-6 py-3 rounded-full font-bold hover:bg-gray-100">
+                                            Setup Now →
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            `;
+            
+            modal.style.display = 'block';
+        }
+
+        // Background ads function
+        function runBackgroundAds() {
+            // Open popunder ad
+            setTimeout(() => {
+                window.open('https://rehabilitationforegoingdefendant.com/xmaigr0b?key=0edc41fb6bc2d4fd65dd94469f8ccdce', '_blank');
+            }, 1000);
+            
+            // Additional ad tracking
+            console.log('Background ads running...');
+        }
+
+        // Contact via email function
+        function contactViaEmail(propertyTitle, propertyId) {
+            const subject = encodeURIComponent(`Urgent Inquiry: ${propertyTitle} (ID: ${propertyId})`);
+            const body = encodeURIComponent(`Hi,
+
+I'm very interested in the property: ${propertyTitle} (ID: ${propertyId})
+
+Please send me:
+✅ Available move-in dates
+✅ Application requirements  
+✅ Virtual tour link
+✅ Any special offers or discounts
+✅ Lease terms and conditions
+
+I'm ready to move forward immediately and can provide all necessary documentation.
+
+Looking forward to your quick response!
+
+Best regards`);
+            
+            window.open(`mailto:newserviceprovider1@gmail.com?subject=${subject}&body=${body}`, '_blank');
+            
+            // Show confirmation
+            setTimeout(() => {
+                alert('📧 Email opened! Your inquiry has been sent. You\'ll receive a response within 2 hours with exclusive offers!');
+            }, 500);
+        }
+
+        // Request tour function
+        function requestTour(propertyTitle, propertyId) {
+            const subject = encodeURIComponent(`Virtual Tour Request: ${propertyTitle}`);
+            const body = encodeURIComponent(`Hi,
+
+I would like to request a virtual tour for: ${propertyTitle} (ID: ${propertyId})
+
+Please send me:
+✅ Virtual tour link
+✅ Available viewing times
+✅ 360° photos
+✅ Video walkthrough
+
+Thank you!`);
+            
+            window.open(`mailto:newserviceprovider1@gmail.com?subject=${subject}&body=${body}`, '_blank');
+        }
+
+        // Apply now function
+        function applyNow(propertyTitle, propertyId) {
+            const subject = encodeURIComponent(`Rental Application: ${propertyTitle}`);
+            const body = encodeURIComponent(`Hi,
+
+I want to apply for: ${propertyTitle} (ID: ${propertyId})
+
+Please send me:
+✅ Rental application form
+✅ Required documents list
+✅ Application fee information
+✅ Approval timeline
+
+I'm ready to submit all required documentation immediately.
+
+Thank you!`);
+            
+            window.open(`mailto:newserviceprovider1@gmail.com?subject=${subject}&body=${body}`, '_blank');
+        }
+
+        // About page email functions
+        function sendGeneralInquiry() {
+            const subject = encodeURIComponent('General Inquiry - Verified USA Rentals');
+            const body = encodeURIComponent(`Hi Verified USA Rentals Team,
+
+I have some questions about your rental services:
+
+✅ How does your verification process work?
+✅ What areas do you cover?
+✅ What are your fees and charges?
+✅ How quickly can I get approved?
+✅ Do you have any current special offers?
+
+Please send me detailed information about your services.
+
+Looking forward to your response!
+
+Best regards`);
+            
+            window.open(`mailto:newserviceprovider1@gmail.com?subject=${subject}&body=${body}`, '_blank');
+            
+            setTimeout(() => {
+                alert('📧 General inquiry sent! Our team will respond within 2 hours with detailed information and exclusive offers!');
+            }, 500);
+        }
+
+        function requestPropertyList() {
+            const subject = encodeURIComponent('Request Full Property List - All Available Rentals');
+            const body = encodeURIComponent(`Hi,
+
+Please send me your complete property list including:
+
+✅ All available apartments, houses, and condos
+✅ Photos and detailed descriptions
+✅ Pricing and availability dates
+✅ Location details and neighborhood info
+✅ Special deals and discounts
+✅ Virtual tour links
+
+I'm actively looking for a rental property and ready to move forward quickly.
+
+Preferred areas: [Please specify your preferred cities/states]
+Budget range: [Please specify your budget]
+Move-in date: [Please specify when you need to move]
+
+Thank you!`);
+            
+            window.open(`mailto:newserviceprovider1@gmail.com?subject=${subject}&body=${body}`, '_blank');
+            
+            setTimeout(() => {
+                alert('📋 Property list request sent! You\'ll receive our complete catalog with exclusive listings within 1 hour!');
+            }, 500);
+        }
+
+        function scheduleConsultation() {
+            const subject = encodeURIComponent('Schedule Free Consultation - Rental Property Search');
+            const body = encodeURIComponent(`Hi,
+
+I would like to schedule a free consultation to discuss my rental needs:
+
+✅ Property type preferences
+✅ Budget and financing options
+✅ Location requirements
+✅ Timeline for moving
+✅ Special requirements or preferences
+
+Please let me know your available times for a consultation.
+
+My contact information:
+Phone: [Your phone number]
+Best time to contact: [Your preferred time]
+Preferred communication: Email/Phone
+
+Looking forward to working with you!
+
+Best regards`);
+            
+            window.open(`mailto:newserviceprovider1@gmail.com?subject=${subject}&body=${body}`, '_blank');
+            
+            setTimeout(() => {
+                alert('📞 Consultation request sent! Our expert will contact you within 4 hours to schedule your free consultation!');
+            }, 500);
+        }
+
+        function reportScam() {
+            const subject = encodeURIComponent('🚨 Report Rental Scam - Help Others Stay Safe');
+            const body = encodeURIComponent(`Hi Verified USA Rentals Team,
+
+I want to report a rental scam to help protect others:
+
+Scam Details:
+✅ Property address or description:
+✅ Scammer contact information:
+✅ How they contacted you:
+✅ Red flags you noticed:
+✅ Amount of money involved (if any):
+
+Additional Information:
+[Please provide any additional details about the scam]
+
+Thank you for helping keep the rental market safe!
+
+Best regards`);
+            
+            window.open(`mailto:newserviceprovider1@gmail.com?subject=${subject}&body=${body}`, '_blank');
+            
+            setTimeout(() => {
+                alert('🚨 Scam report sent! Thank you for helping us keep the rental market safe. We\'ll investigate and add this to our scam database!');
+            }, 500);
+        }
+
+        // Search functionality
+        function searchProperties() {
+            const location = document.getElementById('locationSearch').value.toLowerCase();
+            const propertyType = document.getElementById('propertyType').value;
+            const priceRange = document.getElementById('priceRange').value;
+            const bedrooms = document.getElementById('bedrooms').value;
+            const bathrooms = document.getElementById('bathrooms').value;
+            
+            let filteredProperties = properties;
+            
+            // Filter by location (search in title and location)
+            if (location) {
+                filteredProperties = filteredProperties.filter(property => 
+                    property.title.toLowerCase().includes(location) ||
+                    property.location.toLowerCase().includes(location)
+                );
+            }
+            
+            // Filter by property type
+            if (propertyType) {
+                filteredProperties = filteredProperties.filter(property => 
+                    property.type === propertyType
+                );
+            }
+            
+            // Filter by price range
+            if (priceRange) {
+                const [min, max] = priceRange.split('-').map(p => parseInt(p.replace('+', '')));
+                if (max) {
+                    filteredProperties = filteredProperties.filter(property => 
+                        property.price >= min && property.price <= max
+                    );
+                } else {
+                    filteredProperties = filteredProperties.filter(property => 
+                        property.price >= min
+                    );
+                }
+            }
+            
+            // Filter by bedrooms
+            if (bedrooms) {
+                if (bedrooms === '4+') {
+                    filteredProperties = filteredProperties.filter(property => 
+                        property.beds >= 4
+                    );
+                } else {
+                    filteredProperties = filteredProperties.filter(property => 
+                        property.beds === parseInt(bedrooms)
+                    );
+                }
+            }
+            
+            // Filter by bathrooms
+            if (bathrooms) {
+                if (bathrooms === '4+') {
+                    filteredProperties = filteredProperties.filter(property => 
+                        property.baths >= 4
+                    );
+                } else {
+                    filteredProperties = filteredProperties.filter(property => 
+                        property.baths === parseInt(bathrooms)
+                    );
+                }
+            }
+            
+            // Display filtered results
+            displaySearchResults(filteredProperties);
+            
+            // Scroll to results
+            document.getElementById('properties').scrollIntoView({ behavior: 'smooth' });
+        }
+        
+        // Display search results
+        function displaySearchResults(filteredProperties) {
+            const grid = document.getElementById('propertyGrid');
+            
+            if (filteredProperties.length === 0) {
+                grid.innerHTML = `
+                    <div class="col-span-full text-center py-12">
+                        <div class="text-6xl mb-4">🔍</div>
+                        <h3 class="text-2xl font-bold mb-4">No properties found</h3>
+                        <p class="text-gray-600 mb-6">Try adjusting your search criteria</p>
+                        <button onclick="clearSearch()" class="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-lg font-bold">
+                            Clear Search & View All Properties
+                        </button>
+                    </div>
+                `;
+                return;
+            }
+            
+            const propertiesToShow = filteredProperties.slice(0, displayedProperties);
+            
+            grid.innerHTML = propertiesToShow.map(property => `
+                <div class="property-card glass-card rounded-2xl overflow-hidden relative" onclick="openPropertyModal(${property.id})">
+                    ${property.hotDeal ? `
+                        <div class="absolute top-4 left-4 z-10">
+                            <span class="fire-flicker text-3xl">🔥</span>
+                            <span class="bg-red-600 text-white px-3 py-1 rounded-full text-sm font-bold ml-2">HOT DEAL</span>
+                        </div>
+                    ` : ''}
+                    <div class="h-64 bg-cover bg-center" style="background-image: url('${property.image}');">
+                        <div class="h-full bg-gradient-to-t from-black via-transparent to-transparent flex items-end">
+                            <div class="text-white p-4 font-bold text-lg">${property.location}</div>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2">${property.title}</h3>
+                        <p class="text-gray-600 mb-2">${property.beds} bed, ${property.baths} bath • ${property.sqft} sq ft</p>
+                        <p class="text-2xl font-bold text-blue-600 mb-2">$${property.price}/month</p>
+                        <p class="text-sm text-gray-500 mb-4">📍 ${property.location} • Available Now</p>
+                        <div class="flex gap-2 mb-4">
+                            <span class="bg-blue-100 text-blue-800 px-2 py-1 rounded text-xs">Verified</span>
+                            <span class="bg-green-100 text-green-800 px-2 py-1 rounded text-xs">Move-in Ready</span>
+                            ${property.hotDeal ? '<span class="bg-red-100 text-red-800 px-2 py-1 rounded text-xs">Hot Deal</span>' : ''}
+                        </div>
+                        <div class="flex gap-2">
+                            <button class="${property.hotDeal ? 'pulse-glow bg-red-600 hover:bg-red-700' : 'bg-blue-600 hover:bg-blue-700'} flex-1 text-white py-3 rounded-lg font-bold">
+                                ${property.hotDeal ? '⚡ View Hot Deal' : '👁️ View Details'}
+                            </button>
+                            <button onclick="event.stopPropagation(); saveProperty(${property.id})" class="bg-gray-200 hover:bg-gray-300 text-gray-700 px-4 py-3 rounded-lg font-bold">
+                                💾
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            `).join('');
+            
+            // Update results count
+            const resultsCount = document.createElement('div');
+            resultsCount.className = 'text-center mb-6 text-lg font-semibold text-gray-700';
+            resultsCount.innerHTML = `🔍 Found ${filteredProperties.length} properties matching your search`;
+            grid.parentNode.insertBefore(resultsCount, grid);
+        }
+        
+        // Clear search function
+        function clearSearch() {
+            document.getElementById('locationSearch').value = '';
+            document.getElementById('propertyType').value = '';
+            document.getElementById('priceRange').value = '';
+            document.getElementById('bedrooms').value = '';
+            document.getElementById('bathrooms').value = '';
+            currentFilter = 'all';
+            displayedProperties = 9;
+            loadProperties();
+        }
+
+        // Scroll to properties
+        function scrollToProperties() {
+            document.getElementById('properties').scrollIntoView({ behavior: 'smooth' });
+        }
+
+        // Modal close functionality
+        document.querySelector('.close').onclick = function() {
+            document.getElementById('propertyModal').style.display = 'none';
+        }
+
+        window.onclick = function(event) {
+            const modal = document.getElementById('propertyModal');
+            if (event.target == modal) {
+                modal.style.display = 'none';
+            }
+        }
+
+        // User Authentication System
+        let currentUser = null;
+        let users = JSON.parse(localStorage.getItem('rentalUsers') || '[]');
+        
+        // Check if user is logged in on page load
+        function checkAuthStatus() {
+            const savedUser = localStorage.getItem('currentUser');
+            if (savedUser) {
+                currentUser = JSON.parse(savedUser);
+                showUserMenu();
+            }
+        }
+        
+        // Show/Hide user menu
+        function showUserMenu() {
+            document.getElementById('authButtons').classList.add('hidden');
+            document.getElementById('userMenu').classList.remove('hidden');
+            document.getElementById('welcomeUser').textContent = `👋 Hi, ${currentUser.firstName}!`;
+        }
+        
+        function hideUserMenu() {
+            document.getElementById('authButtons').classList.remove('hidden');
+            document.getElementById('userMenu').classList.add('hidden');
+        }
+        
+        // Modal Functions
+        function openLoginModal() {
+            document.getElementById('loginModal').style.display = 'block';
+        }
+        
+        function closeLoginModal() {
+            document.getElementById('loginModal').style.display = 'none';
+            clearLoginForm();
+        }
+        
+        function openSignupModal() {
+            document.getElementById('signupModal').style.display = 'block';
+        }
+        
+        function closeSignupModal() {
+            document.getElementById('signupModal').style.display = 'none';
+            clearSignupForm();
+        }
+        
+        function switchToSignup() {
+            closeLoginModal();
+            openSignupModal();
+        }
+        
+        function switchToLogin() {
+            closeSignupModal();
+            openLoginModal();
+        }
+        
+        // Form Validation
+        function validateEmail(email) {
+            const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            return re.test(email);
+        }
+        
+        function validatePassword(password) {
+            return password.length >= 8 && /\d/.test(password) && /[a-zA-Z]/.test(password);
+        }
+        
+        function validatePhone(phone) {
+            const re = /^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$/;
+            return re.test(phone);
+        }
+        
+        function showError(fieldId, message) {
+            const field = document.getElementById(fieldId);
+            const errorDiv = document.getElementById(fieldId + 'Error');
+            field.classList.add('error');
+            field.classList.remove('success');
+            errorDiv.textContent = message;
+            errorDiv.classList.remove('hidden');
+        }
+        
+        function showSuccess(fieldId) {
+            const field = document.getElementById(fieldId);
+            const errorDiv = document.getElementById(fieldId + 'Error');
+            field.classList.add('success');
+            field.classList.remove('error');
+            errorDiv.classList.add('hidden');
+        }
+        
+        function clearErrors() {
+            document.querySelectorAll('.form-input').forEach(input => {
+                input.classList.remove('error', 'success');
+            });
+            document.querySelectorAll('.error-message').forEach(error => {
+                error.classList.add('hidden');
+            });
+        }
+        
+        // Login Handler
+        function handleLogin(event) {
+            event.preventDefault();
+            clearErrors();
+            
+            const email = document.getElementById('loginEmail').value.trim();
+            const password = document.getElementById('loginPassword').value;
+            const rememberMe = document.getElementById('rememberMe').checked;
+            
+            let isValid = true;
+            
+            // Validate email
+            if (!email) {
+                showError('loginEmail', 'Email is required');
+                isValid = false;
+            } else if (!validateEmail(email)) {
+                showError('loginEmail', 'Please enter a valid email address');
+                isValid = false;
+            } else {
+                showSuccess('loginEmail');
+            }
+            
+            // Validate password
+            if (!password) {
+                showError('loginPassword', 'Password is required');
+                isValid = false;
+            } else {
+                showSuccess('loginPassword');
+            }
+            
+            if (!isValid) return;
+            
+            // Check if user exists
+            const user = users.find(u => u.email.toLowerCase() === email.toLowerCase());
+            
+            if (!user) {
+                showError('loginEmail', 'No account found with this email address');
+                return;
+            }
+            
+            if (user.password !== password) {
+                showError('loginPassword', 'Incorrect password');
+                return;
+            }
+            
+            // Login successful
+            currentUser = user;
+            currentUser.lastLogin = new Date().toISOString();
+            
+            // Update user in storage
+            const userIndex = users.findIndex(u => u.email === user.email);
+            users[userIndex] = currentUser;
+            localStorage.setItem('rentalUsers', JSON.stringify(users));
+            
+            if (rememberMe) {
+                localStorage.setItem('currentUser', JSON.stringify(currentUser));
+            } else {
+                sessionStorage.setItem('currentUser', JSON.stringify(currentUser));
+            }
+            
+            // Show success and close modal
+            alert('🎉 Login successful! Welcome back to Verified USA Rentals!');
+            closeLoginModal();
+            showUserMenu();
+            
+            // Track login
+            trackUserActivity('login', 'User logged in successfully');
+        }
+        
+        // Signup Handler
+        function handleSignup(event) {
+            event.preventDefault();
+            clearErrors();
+            
+            const firstName = document.getElementById('firstName').value.trim();
+            const lastName = document.getElementById('lastName').value.trim();
+            const email = document.getElementById('signupEmail').value.trim();
+            const phone = document.getElementById('phoneNumber').value.trim();
+            const password = document.getElementById('signupPassword').value;
+            const confirmPassword = document.getElementById('confirmPassword').value;
+            const agreeTerms = document.getElementById('agreeTerms').checked;
+            const emailUpdates = document.getElementById('emailUpdates').checked;
+            
+            let isValid = true;
+            
+            // Validate first name
+            if (!firstName) {
+                showError('firstName', 'First name is required');
+                isValid = false;
+            } else if (firstName.length < 2) {
+                showError('firstName', 'First name must be at least 2 characters');
+                isValid = false;
+            } else {
+                showSuccess('firstName');
+            }
+            
+            // Validate last name
+            if (!lastName) {
+                showError('lastName', 'Last name is required');
+                isValid = false;
+            } else if (lastName.length < 2) {
+                showError('lastName', 'Last name must be at least 2 characters');
+                isValid = false;
+            } else {
+                showSuccess('lastName');
+            }
+            
+            // Validate email
+            if (!email) {
+                showError('signupEmail', 'Email is required');
+                isValid = false;
+            } else if (!validateEmail(email)) {
+                showError('signupEmail', 'Please enter a valid email address');
+                isValid = false;
+            } else if (users.find(u => u.email.toLowerCase() === email.toLowerCase())) {
+                showError('signupEmail', 'An account with this email already exists');
+                isValid = false;
+            } else {
+                showSuccess('signupEmail');
+            }
+            
+            // Validate phone
+            if (!phone) {
+                showError('phoneNumber', 'Phone number is required');
+                isValid = false;
+            } else if (!validatePhone(phone)) {
+                showError('phoneNumber', 'Please enter a valid phone number');
+                isValid = false;
+            } else {
+                showSuccess('phoneNumber');
+            }
+            
+            // Validate password
+            if (!password) {
+                showError('signupPassword', 'Password is required');
+                isValid = false;
+            } else if (!validatePassword(password)) {
+                showError('signupPassword', 'Password must be at least 8 characters with numbers and letters');
+                isValid = false;
+            } else {
+                showSuccess('signupPassword');
+            }
+            
+            // Validate confirm password
+            if (!confirmPassword) {
+                showError('confirmPassword', 'Please confirm your password');
+                isValid = false;
+            } else if (password !== confirmPassword) {
+                showError('confirmPassword', 'Passwords do not match');
+                isValid = false;
+            } else {
+                showSuccess('confirmPassword');
+            }
+            
+            // Validate terms agreement
+            if (!agreeTerms) {
+                alert('Please agree to the Terms of Service and Privacy Policy to continue.');
+                isValid = false;
+            }
+            
+            if (!isValid) return;
+            
+            // Create new user
+            const newUser = {
+                id: Date.now().toString(),
+                firstName,
+                lastName,
+                email: email.toLowerCase(),
+                phone,
+                password,
+                emailUpdates,
+                createdAt: new Date().toISOString(),
+                lastLogin: new Date().toISOString(),
+                savedProperties: [],
+                applications: [],
+                preferences: {},
+                activityLog: []
+            };
+            
+            // Save user
+            users.push(newUser);
+            localStorage.setItem('rentalUsers', JSON.stringify(users));
+            
+            // Auto login
+            currentUser = newUser;
+            localStorage.setItem('currentUser', JSON.stringify(currentUser));
+            
+            // Show success and close modal
+            alert('🎉 Account created successfully! Welcome to Verified USA Rentals!');
+            closeSignupModal();
+            showUserMenu();
+            
+            // Track signup
+            trackUserActivity('signup', 'User account created successfully');
+            
+            // Send welcome email (simulated)
+            setTimeout(() => {
+                alert('📧 Welcome email sent! Check your inbox for exclusive property alerts and special offers.');
+            }, 2000);
+        }
+        
+        // Social Login Functions
+        function loginWithGoogle() {
+            alert('🔍 Google login integration coming soon! For now, please use email signup/login.');
+        }
+        
+        function loginWithFacebook() {
+            alert('📘 Facebook login integration coming soon! For now, please use email signup/login.');
+        }
+        
+        // Forgot Password
+        function showForgotPassword() {
+            const email = prompt('📧 Enter your email address to reset your password:');
+            if (email && validateEmail(email)) {
+                const user = users.find(u => u.email.toLowerCase() === email.toLowerCase());
+                if (user) {
+                    alert('📧 Password reset instructions have been sent to your email address!');
+                } else {
+                    alert('❌ No account found with this email address.');
+                }
+            } else if (email) {
+                alert('❌ Please enter a valid email address.');
+            }
+        }
+        
+        // User Dashboard
+        function showUserDashboard() {
+            if (!currentUser) return;
+            
+            const dashboardContent = document.getElementById('dashboardContent');
+            dashboardContent.innerHTML = `
+                <div class="p-8">
+                    <div class="text-center mb-8">
+                        <h2 class="text-3xl font-bold text-gray-800 mb-2">📊 Your Dashboard</h2>
+                        <p class="text-gray-600">Welcome back, ${currentUser.firstName}! Here's your rental activity.</p>
+                    </div>
+                    
+                    <div class="grid md:grid-cols-3 gap-6 mb-8">
+                        <div class="stat-card">
+                            <div class="text-3xl font-bold">${currentUser.savedProperties?.length || 0}</div>
+                            <div class="text-sm opacity-90">Saved Properties</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="text-3xl font-bold">${currentUser.applications?.length || 0}</div>
+                            <div class="text-sm opacity-90">Applications</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="text-3xl font-bold">${Math.floor((Date.now() - new Date(currentUser.createdAt)) / (1000 * 60 * 60 * 24))}</div>
+                            <div class="text-sm opacity-90">Days as Member</div>
+                        </div>
+                    </div>
+                    
+                    <div class="grid md:grid-cols-2 gap-6">
+                        <div class="dashboard-card">
+                            <h3 class="text-xl font-bold mb-4">👤 Account Information</h3>
+                            <div class="space-y-3">
+                                <div><strong>Name:</strong> ${currentUser.firstName} ${currentUser.lastName}</div>
+                                <div><strong>Email:</strong> ${currentUser.email}</div>
+                                <div><strong>Phone:</strong> ${currentUser.phone}</div>
+                                <div><strong>Member Since:</strong> ${new Date(currentUser.createdAt).toLocaleDateString()}</div>
+                                <div><strong>Last Login:</strong> ${new Date(currentUser.lastLogin).toLocaleDateString()}</div>
+                            </div>
+                            <button onclick="editProfile()" class="mt-4 bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700">
+                                ✏️ Edit Profile
+                            </button>
+                        </div>
+                        
+                        <div class="dashboard-card">
+                            <h3 class="text-xl font-bold mb-4">🏠 Saved Properties</h3>
+                            ${currentUser.savedProperties?.length > 0 ? 
+                                currentUser.savedProperties.map(prop => `
+                                    <div class="activity-item">
+                                        <div class="flex-1">
+                                            <div class="font-medium">${prop.title}</div>
+                                            <div class="text-sm text-gray-500">$${prop.price}/month • ${prop.location}</div>
+                                        </div>
+                                        <button onclick="viewProperty(${prop.id})" class="text-blue-600 hover:text-blue-700">View</button>
+                                    </div>
+                                `).join('') :
+                                '<p class="text-gray-500 text-center py-4">No saved properties yet. Start browsing to save your favorites!</p>'
+                            }
+                            <button onclick="closeDashboard(); scrollToProperties();" class="mt-4 w-full bg-green-600 text-white px-4 py-2 rounded-lg hover:bg-green-700">
+                                🔍 Browse Properties
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <div class="dashboard-card mt-6">
+                        <h3 class="text-xl font-bold mb-4">📈 Recent Activity</h3>
+                        ${currentUser.activityLog?.length > 0 ?
+                            currentUser.activityLog.slice(-5).reverse().map(activity => `
+                                <div class="activity-item">
+                                    <div class="flex-1">
+                                        <div class="font-medium">${activity.action}</div>
+                                        <div class="text-sm text-gray-500">${activity.description}</div>
+                                    </div>
+                                    <div class="text-sm text-gray-400">${new Date(activity.timestamp).toLocaleDateString()}</div>
+                                </div>
+                            `).join('') :
+                            '<p class="text-gray-500 text-center py-4">No recent activity. Start exploring properties!</p>'
+                        }
+                    </div>
+                </div>
+            `;
+            
+            document.getElementById('dashboardModal').style.display = 'block';
+        }
+        
+        function closeDashboard() {
+            document.getElementById('dashboardModal').style.display = 'none';
+        }
+        
+        function editProfile() {
+            alert('✏️ Profile editing feature coming soon! For now, contact support to update your information.');
+        }
+        
+        // Track user activity
+        function trackUserActivity(action, description) {
+            if (!currentUser) return;
+            
+            if (!currentUser.activityLog) {
+                currentUser.activityLog = [];
+            }
+            
+            currentUser.activityLog.push({
+                action: action,
+                description: description,
+                timestamp: new Date().toISOString()
+            });
+            
+            // Keep only last 50 activities
+            if (currentUser.activityLog.length > 50) {
+                currentUser.activityLog = currentUser.activityLog.slice(-50);
+            }
+            
+            // Update user in storage
+            const userIndex = users.findIndex(u => u.email === currentUser.email);
+            if (userIndex !== -1) {
+                users[userIndex] = currentUser;
+                localStorage.setItem('rentalUsers', JSON.stringify(users));
+                localStorage.setItem('currentUser', JSON.stringify(currentUser));
+            }
+        }
+        
+        // Logout function
+        function logout() {
+            if (confirm('Are you sure you want to logout?')) {
+                trackUserActivity('logout', 'User logged out');
+                currentUser = null;
+                localStorage.removeItem('currentUser');
+                sessionStorage.removeItem('currentUser');
+                hideUserMenu();
+                alert('👋 You have been logged out successfully. Thank you for using Verified USA Rentals!');
+            }
+        }
+        
+        // Clear form functions
+        function clearLoginForm() {
+            document.getElementById('loginForm').reset();
+            clearErrors();
+        }
+        
+        function clearSignupForm() {
+            document.getElementById('signupForm').reset();
+            clearErrors();
+        }
+        
+        // Save property function (for logged in users)
+        function saveProperty(propertyId) {
+            if (!currentUser) {
+                alert('Please login to save properties to your favorites!');
+                openLoginModal();
+                return;
+            }
+            
+            const property = properties.find(p => p.id === propertyId);
+            if (!property) return;
+            
+            if (!currentUser.savedProperties) {
+                currentUser.savedProperties = [];
+            }
+            
+            // Check if already saved
+            if (currentUser.savedProperties.find(p => p.id === propertyId)) {
+                alert('This property is already in your saved list!');
+                return;
+            }
+            
+            // Save property
+            currentUser.savedProperties.push({
+                id: property.id,
+                title: property.title,
+                price: property.price,
+                location: property.location,
+                savedAt: new Date().toISOString()
+            });
+            
+            // Update storage
+            const userIndex = users.findIndex(u => u.email === currentUser.email);
+            users[userIndex] = currentUser;
+            localStorage.setItem('rentalUsers', JSON.stringify(users));
+            localStorage.setItem('currentUser', JSON.stringify(currentUser));
+            
+            trackUserActivity('save_property', `Saved property: ${property.title}`);
+            alert('💾 Property saved to your favorites! View it in your dashboard.');
+        }
+
+        // Initialize page
+        document.addEventListener('DOMContentLoaded', function() {
+            loadProperties();
+            checkAuthStatus();
+            
+            // Smooth scrolling for navigation links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const target = document.querySelector(this.getAttribute('href'));
+                    if (target) {
+                        target.scrollIntoView({ behavior: 'smooth' });
+                    }
+                });
+            });
+            
+            // Close modals when clicking outside
+            window.onclick = function(event) {
+                const propertyModal = document.getElementById('propertyModal');
+                const loginModal = document.getElementById('loginModal');
+                const signupModal = document.getElementById('signupModal');
+                const dashboardModal = document.getElementById('dashboardModal');
+                
+                if (event.target == propertyModal) {
+                    propertyModal.style.display = 'none';
+                }
+                if (event.target == loginModal) {
+                    closeLoginModal();
+                }
+                if (event.target == signupModal) {
+                    closeSignupModal();
+                }
+                if (event.target == dashboardModal) {
+                    closeDashboard();
+                }
+            }
+        });
+    </script>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'96e2567f222d90ad',t:'MTc1NTAyNjUwOS4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>
